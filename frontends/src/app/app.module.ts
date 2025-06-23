@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 //proporciona directivas y tuberías (pipes) comunes utilizadas
 //en aplicaciones Angular, como ngClass, ngIf, ngFor, entre otras
@@ -13,9 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,9 +22,11 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoginComponent,
+    HomeComponent
   ],
   providers: [],
-  bootstrap: []
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
