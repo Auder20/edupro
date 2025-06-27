@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const connectMongo = require('./config/mongo');
-const connectMySQL = require('./config/mysql');
+const connectMongo = require('./src/config/mongo');
+const connectMySQL = require('./src/config/mysql');
 
 const app = express();
 app.use(cors()); // Permitir solicitudes del frontend
