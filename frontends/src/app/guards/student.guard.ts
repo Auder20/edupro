@@ -10,12 +10,13 @@ export class StudentGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const user = this.authService.getCurrentUser();
-    if (user && user.role === 'student') {
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    const role = this.authService.getRole();
+    if (role === 'estudiante') {
       return true;
     }
     this.router.navigate(['/login']);

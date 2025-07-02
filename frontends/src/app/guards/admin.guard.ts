@@ -14,7 +14,8 @@ export class AdminGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    if (this.authService.isLoggedIn() && this.authService.isAdmin()) {
+    const role = this.authService.getRole();
+    if (role === 'admin') {
       return true;
     }
     return this.router.createUrlTree(['/login']);
