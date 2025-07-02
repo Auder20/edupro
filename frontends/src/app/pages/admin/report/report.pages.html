@@ -1,0 +1,46 @@
+<div class="report-page">
+  <h1>Reporte de Administración</h1>
+
+  <section class="report-filters">
+    <h2>Filtros</h2>
+    <form>
+      <label for="date-from">Desde:</label>
+      <input type="date" id="date-from" name="date-from">
+
+      <label for="date-to">Hasta:</label>
+      <input type="date" id="date-to" name="date-to">
+
+      <button type="submit">Generar Reporte</button>
+    </form>
+  </section>
+
+  <section class="report-results">
+    <h2>Resultados</h2>
+    <!-- Aquí se mostrarán los resultados del reporte -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filas de ejemplo -->
+        <tr>
+          <td>1</td>
+          <td>Ejemplo 1</td>
+          <td>2024-06-01</td>
+          <td>Completado</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ejemplo 2</td>
+          <td>2024-06-02</td>
+          <td>Pendiente</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,0 +1,67 @@
+/* Estilos para la página de inscripción de estudiante */
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+h1, h2 {
+  color: #2d3a4a;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.button {
+  background: #2563eb;
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: #1e40af;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,16 @@
+<!-- submissing.pages.html -->
+<div class="submissing-page">
+  <h1>Submissions</h1>
+  <div class="submission-list">
+    <!-- Aquí se mostrarán las entregas de los estudiantes -->
+    <div class="submission-item" *ngFor="let submission of submissions">
+      <h3>{{ submission.studentName }}</h3>
+      <p>Fecha de entrega: {{ submission.date | date }}</p>
+      <p>Estado: {{ submission.status }}</p>
+      <button (click)="viewSubmission(submission)">Ver entrega</button>
+    </div>
+    <div *ngIf="submissions.length === 0">
+      <p>No hay entregas registradas.</p>
+    </div>
+  </div>
+</div>

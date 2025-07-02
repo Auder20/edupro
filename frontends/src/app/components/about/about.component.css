@@ -1,0 +1,81 @@
+/* about.component.css */
+
+/* Container styling */
+.about-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Heading styles */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.about-subtitle {
+  font-size: 1.25rem;
+  color: #3949ab;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+/* Paragraph styles */
+.about-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* List styles */
+.about-list {
+  margin: 16px 0 24px 24px;
+  padding: 0;
+  color: #444;
+}
+
+.about-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 18px;
+}
+
+.about-list li::before {
+  content: '•';
+  color: #3949ab;
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
+/* Image styles */
+.about-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 32px auto 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.10);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 16px 8px;
+  }
+  .about-title {
+    font-size: 2rem;
+  }
+  .about-subtitle {
+    font-size: 1rem;
+  }
+}

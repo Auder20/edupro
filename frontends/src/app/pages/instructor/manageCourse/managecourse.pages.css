@@ -1,0 +1,94 @@
+/* Estilos base para la página de gestión de cursos del instructor */
+
+.manage-course-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.manage-course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.manage-course-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #22223b;
+}
+
+.manage-course-actions button {
+  background: #3a86ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.manage-course-actions button:hover {
+  background: #265d97;
+}
+
+.course-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.course-list th,
+.course-list td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.course-list th {
+  background: #f7f7fa;
+  font-weight: 600;
+  color: #4a4e69;
+}
+
+.course-list tr:hover {
+  background: #f0f4ff;
+}
+
+.course-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.course-status.active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.course-status.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+@media (max-width: 768px) {
+  .manage-course-container {
+    padding: 16px 4px;
+  }
+  .manage-course-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .course-list th, .course-list td {
+    padding: 8px 4px;
+    font-size: 0.95rem;
+  }
+}

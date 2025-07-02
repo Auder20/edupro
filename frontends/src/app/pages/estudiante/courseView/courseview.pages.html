@@ -1,0 +1,26 @@
+<div class="course-view-page">
+  <h1>Detalles del Curso</h1>
+  <div class="course-info">
+    <img src="assets/course-placeholder.png" alt="Imagen del curso" class="course-image">
+    <div class="course-details">
+      <h2>{{ course.title }}</h2>
+      <p>{{ course.description }}</p>
+      <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+      <p><strong>Duración:</strong> {{ course.duration }}</p>
+    </div>
+  </div>
+
+  <div class="course-content">
+    <h3>Contenido del Curso</h3>
+    <ul>
+      <li *ngFor="let module of course.modules">
+        {{ module.title }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="course-actions">
+    <button mat-raised-button color="primary">Empezar Curso</button>
+    <button mat-button>Volver</button>
+  </div>
+</div></div>

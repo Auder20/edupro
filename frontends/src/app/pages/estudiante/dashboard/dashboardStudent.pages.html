@@ -1,0 +1,40 @@
+<!-- dashboardStudent.pages.html -->
+
+<div class="dashboard-student">
+  <h1>Bienvenido al Panel de Estudiante</h1>
+
+  <section class="student-summary">
+    <h2>Resumen</h2>
+    <ul>
+      <li><strong>Cursos inscritos:</strong> <!-- {{ enrolledCourses }} --></li>
+      <li><strong>Progreso general:</strong> <!-- {{ progress }}% --></li>
+      <li><strong>Próxima clase:</strong> <!-- {{ nextClass | date }} --></li>
+    </ul>
+  </section>
+
+  <section class="student-courses">
+    <h2>Mis Cursos</h2>
+    <!-- Aquí puedes iterar sobre los cursos del estudiante -->
+    <ul>
+      <!--
+      <li *ngFor="let course of courses">
+        <span>{{ course.name }}</span>
+        <span>Progreso: {{ course.progress }}%</span>
+      </li>
+      -->
+      <li>No tienes cursos inscritos actualmente.</li>
+    </ul>
+  </section>
+
+  <section class="student-notifications">
+    <h2>Notificaciones</h2>
+    <!--
+    <ul>
+      <li *ngFor="let notification of notifications">
+        {{ notification.message }}
+      </li>
+    </ul>
+    -->
+    <p>No tienes notificaciones nuevas.</p>
+  </section>
+</div>

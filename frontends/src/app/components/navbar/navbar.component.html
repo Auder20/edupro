@@ -1,0 +1,41 @@
+<!-- navbar.component.html -->
+
+<!-- Navbar para usuarios no autenticados -->
+<ng-container *ngIf="!isAuthenticated">
+  <nav class="navbar">
+    <a routerLink="/">Inicio</a>
+    <a routerLink="/login">Ingresar</a>
+    <a routerLink="/register">Registrarse</a>
+  </nav>
+</ng-container>
+
+<!-- Navbar para Admin -->
+<ng-container *ngIf="isAuthenticated && userRole === 'admin'">
+  <nav class="navbar">
+    <a routerLink="/">Dashboard</a>
+    <a routerLink="/users">Usuarios</a>
+    <a routerLink="/courses">Cursos</a>
+    <a routerLink="/settings">Configuración</a>
+    <a (click)="logout()">Salir</a>
+  </nav>
+</ng-container>
+
+<!-- Navbar para Instructor -->
+<ng-container *ngIf="isAuthenticated && userRole === 'instructor'">
+  <nav class="navbar">
+    <a routerLink="/">Mis Cursos</a>
+    <a routerLink="/create-course">Crear Curso</a>
+    <a routerLink="/profile">Perfil</a>
+    <a (click)="logout()">Salir</a>
+  </nav>
+</ng-container>
+
+<!-- Navbar para Estudiante -->
+<ng-container *ngIf="isAuthenticated && userRole === 'estudiante'">
+  <nav class="navbar">
+    <a routerLink="/">Inicio</a>
+    <a routerLink="/my-courses">Mis Cursos</a>
+    <a routerLink="/profile">Perfil</a>
+    <a (click)="logout()">Salir</a>
+  </nav>
+</ng-container>

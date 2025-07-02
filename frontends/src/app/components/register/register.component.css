@@ -1,0 +1,88 @@
+/* Estilo principal para el formulario de registro */
+.register-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.register-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #2d3e50;
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #f8fafc;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #4f8cff;
+  outline: none;
+  background: #fff;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+
+.register-btn:hover {
+  background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
+}
+
+.register-link {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  color: #4f8cff;
+  text-decoration: none;
+  font-size: 0.97rem;
+  transition: color 0.2s;
+}
+
+.register-link:hover {
+  color: #2d3e50;
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .register-container {
+    padding: 18px 8px;
+    border-radius: 8px;
+  }
+  .register-title {
+    font-size: 1.4rem;
+  }
+}

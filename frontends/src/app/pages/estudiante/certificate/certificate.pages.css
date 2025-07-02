@@ -1,0 +1,73 @@
+/* Estilos para la página de certificado de estudiante */
+
+.certificate-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.certificate-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.certificate-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #2d3a4b;
+  margin-bottom: 8px;
+}
+
+.certificate-subtitle {
+  font-size: 1.1rem;
+  color: #6c7a89;
+  margin-bottom: 24px;
+}
+
+.certificate-body {
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.certificate-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.certificate-signature {
+  text-align: center;
+}
+
+.certificate-signature img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.certificate-signature-name {
+  font-weight: bold;
+  color: #2d3a4b;
+}
+
+.certificate-date {
+  color: #6c7a89;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .certificate-container {
+    padding: 16px;
+  }
+  .certificate-footer {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

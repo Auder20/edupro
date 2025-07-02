@@ -1,0 +1,60 @@
+/* Estilos para la página de creación de cursos de instructor */
+
+.create-course-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.create-course-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #22223b;
+}
+
+.create-course-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a4e69;
+}
+
+.create-course-form input,
+.create-course-form textarea,
+.create-course-form select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border: 1px solid #c9ada7;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8f9fa;
+  transition: border-color 0.2s;
+}
+
+.create-course-form input:focus,
+.create-course-form textarea:focus,
+.create-course-form select:focus {
+  border-color: #9a8c98;
+  outline: none;
+}
+
+.create-course-form button {
+  background: #5f6dff;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-course-form button:hover {
+  background: #22223b;
+}

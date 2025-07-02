@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
 
 //proporciona directivas y tuberías (pipes) comunes utilizadas
 //en aplicaciones Angular, como ngClass, ngIf, ngFor, entre otras
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module';
     CommonModule,
     ReactiveFormsModule,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

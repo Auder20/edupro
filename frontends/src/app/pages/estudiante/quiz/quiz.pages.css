@@ -1,0 +1,67 @@
+/* Estilos para la página de quiz de estudiante */
+
+.quiz-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.quiz-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #2d3a4a;
+  text-align: center;
+}
+
+.quiz-question {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.quiz-option {
+  margin-bottom: 12px;
+}
+
+.quiz-option input[type="radio"] {
+  margin-right: 10px;
+}
+
+.quiz-submit-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quiz-submit-btn:hover {
+  background: #1565c0;
+}
+
+.quiz-feedback {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.quiz-feedback.correct {
+  color: #388e3c;
+}
+
+.quiz-feedback.incorrect {
+  color: #d32f2f;
+}

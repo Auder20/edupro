@@ -1,0 +1,85 @@
+/* Estilos para la página de "Mis Cursos" del estudiante */
+
+.mycourse-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  background: #f9f9f9;
+  min-height: 80vh;
+}
+
+.mycourse-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #2d3748;
+}
+
+.mycourse-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.mycourse-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+}
+
+.mycourse-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.mycourse-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1a202c;
+}
+
+.mycourse-card-description {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 16px;
+}
+
+.mycourse-card-progress {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.mycourse-card-progress-bar {
+  height: 100%;
+  background: #3182ce;
+  width: 0%;
+  transition: width 0.4s;
+}
+
+.mycourse-card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.mycourse-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #3182ce;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mycourse-btn:hover {
+  background: #2563eb;
+}

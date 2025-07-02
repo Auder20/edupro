@@ -1,0 +1,60 @@
+/* Estilos básicos para la página de reportes de administración */
+
+.report-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.report-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+}
+
+.report-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.report-table th,
+.report-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.report-table th {
+  background: #f7fafc;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.report-table tr:hover {
+  background: #f1f5f9;
+}
+
+@media (max-width: 768px) {
+  .report-container {
+    padding: 1rem;
+  }
+  .report-filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .report-title {
+    font-size: 1.5rem;
+  }
+}

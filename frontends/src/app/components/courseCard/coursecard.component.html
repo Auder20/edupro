@@ -1,0 +1,11 @@
+<div class="course-card">
+  <img class="course-card__image" src="assets/images/course-placeholder.jpg" alt="Imagen del curso">
+  <div class="course-card__content">
+    <h2 class="course-card__title">{{ course.title }}</h2>
+    <p class="course-card__description">{{ course.description }}</p>
+    <div class="course-card__footer">
+      <span class="course-card__instructor">Instructor: {{ course.instructor }}</span>
+      <button class="course-card__enroll-btn" (click)="enroll()">Inscribirse</button>
+    </div>
+  </div>
+</div>
