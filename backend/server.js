@@ -11,12 +11,11 @@ app.get('/', (req, res) => {
   res.send('¡Servidor backend funcionando!');
 });
 app.use('/api/auth', require('./src/controllers/authController'));
-app.use('/api/courses', require('./src/controllers/courseController'));
-app.use('/api/courses/:courseId/lessons', require('./src/controllers/lessonController'));
-app.use('/api/courses/:courseId/lessons/:lessonTitle/comments', require('./src/controllers/commentsController'));
-app.use('/api/courses/:courseId/lessons/:lessonTitle/quiz', require('./src/controllers/quizController'));
-app.use('/api/courses/:courseId/lessons/:lessonTitle/quiz/results', require('./src/controllers/quizResultController'));
-app.use('/api/courses/:courseId/forum', require('./src/controllers/forumController'));
+app.use('/api/users', require('./src/routes/userRoute'));
+app.use('/api/courses', require('./src/routes/courseRoute'));
+app.use('/api/certificates', require('./src/routes/certificatesRoute'));
+app.use('/api/transactions', require('./src/routes/transactionsRoute'));
+app.use('/api/forum', require('./src/routes/forumRoute'));
 
 connectMySQL();
 connectMongo();
