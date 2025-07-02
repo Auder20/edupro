@@ -1,11 +1,29 @@
+require('dotenv').config();
 const express = require('express');
+const helmet = require('helmet');
+const compression = require('compression');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./src/config/swagger');
+const logger = require('./src/config/logger');
 const cors = require('cors');
 const connectMongo = require('./src/config/mongo');
 const connectMySQL = require('./src/config/mysql');
 
 const app = express();
+
+app.use(helmet());
+app.use(compression());
 app.use(cors()); // Permitir solicitudes del frontend
 app.use(express.json()); // Parsear JSON
+
+// Documentación Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Ejemplo de logging
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 
 app.get('/', (req, res) => {
   res.send('¡Servidor backend funcionando!');
@@ -20,4 +38,4 @@ app.use('/api/forum', require('./src/routes/forumRoute'));
 connectMySQL();
 connectMongo();
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+app.listen(PORT, () => logger.info(`Servidor corriendo en el puerto ${PORT}`));
