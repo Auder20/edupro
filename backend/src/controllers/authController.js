@@ -1,6 +1,6 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
-const { User } = require('../models/mysql'); // ajusta si necesitas importar de index.js
+const bcrypt = require('bcrypt');
+const User = require('../models/mysql/user');
 
 const router = express.Router();
 

@@ -5,6 +5,7 @@ export interface Course {
   title: string;
   description: string;
   instructor: string;
+  level: string; // Agregado nivel
 }
 
 @Component({
@@ -13,5 +14,8 @@ export interface Course {
   styleUrls: ['./courselist.component.css']
 })
 export class CourselistComponent {
-  @Input() courses: Course[] = [];
+  @Input() courses: Course[] = [
+    { id: 1, title: 'Matemáticas', description: 'Curso de matemáticas básicas.', instructor: 'Juan Pérez', level: 'Básico' },
+    { id: 2, title: 'Ciencias', description: 'Curso de ciencias naturales.', instructor: 'Ana Garay', level: 'Intermedio' }
+  ];
 }

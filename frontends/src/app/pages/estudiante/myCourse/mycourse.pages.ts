@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./mycourse.pages.css']
 })
 export class MyCoursePage {
-  // Aquí puedes agregar la lógica de tu componente
+  courses: any[] = [
+    { id: 1, title: 'Matemáticas', description: 'Curso de matemáticas básicas.' },
+    { id: 2, title: 'Ciencias', description: 'Curso de ciencias naturales.' }
+  ];
+
   constructor() {}
 
   // Método de ejemplo para el test

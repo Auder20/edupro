@@ -6,6 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courseview.pages.scss']
 })
 export class CourseViewPage implements OnInit {
+  course = {
+    title: 'Curso de Matemáticas',
+    description: 'Aprende matemáticas desde cero.',
+    instructor: 'Juan Pérez',
+    duration: '10 horas',
+    modules: [
+      { title: 'Álgebra' },
+      { title: 'Geometría' },
+      { title: 'Trigonometría' }
+    ]
+  };
 
   constructor() { }
 

@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  // Puedes agregar propiedades y métodos aquí según sea necesario
+  isAuthenticated: boolean = false;
+  userRole: string = '';
+
+  constructor() {
+    // Simulación: aquí deberías obtener el estado real de autenticación y rol
+    // Por ejemplo, usando un AuthService
+    // this.isAuthenticated = authService.isAuthenticated();
+    // this.userRole = authService.getUserRole();
+  }
+
+  logout() {
+    // Lógica de logout real aquí
+    this.isAuthenticated = false;
+    this.userRole = '';
+    // Redirigir o limpiar sesión
+    console.log('Sesión cerrada');
+  }
 }

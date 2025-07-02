@@ -1,5 +1,5 @@
 const express = require('express');
-const { Course } = require('../models/mysql');
+const Course = require('../models/mysql/course');
 const router = express.Router();
 
 // Crear curso
