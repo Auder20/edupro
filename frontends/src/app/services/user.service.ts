@@ -6,6 +6,7 @@ export interface User {
   id: number;
   name: string;
   email: string;
+  role?: string; // Agregado para el mapeo de roles
   // agrega más campos según tu modelo de usuario
 }
 
@@ -25,12 +26,36 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
 
+  // Mapea el rol del frontend al valor esperado por el backend
+  private mapRoleToBackend(role: string): string {
+    switch (role) {
+      case 'admin':
+        return 'admin';
+      case 'instructor':
+        return 'instructor';
+      case 'estudiante':
+        return 'student';
+      default:
+        return 'student'; // valor por defecto
+    }
+  }
+
   createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+    // Si el usuario tiene rol, lo mapeamos antes de enviarlo al backend
+    const userToSend = { ...user };
+    if (userToSend.role) {
+      userToSend.role = this.mapRoleToBackend(userToSend.role);
+    }
+    return this.http.post<User>(this.apiUrl, userToSend);
   }
 
   updateUser(id: number, user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${id}`, user);
+    // Si el usuario tiene rol, lo mapeamos antes de enviarlo al backend
+    const userToSend = { ...user };
+    if (userToSend.role) {
+      userToSend.role = this.mapRoleToBackend(userToSend.role);
+    }
+    return this.http.put<User>(`${this.apiUrl}/${id}`, userToSend);
   }
 
   deleteUser(id: number): Observable<void> {

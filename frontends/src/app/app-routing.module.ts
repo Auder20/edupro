@@ -1,3 +1,20 @@
+// app-routing.module.ts
+//
+// Este módulo define las rutas principales de la aplicación Angular.
+// Se recomienda agrupar rutas por roles y aplicar guards para proteger el acceso.
+//
+// Estructura:
+// - Rutas hijas bajo MainLayoutComponent para la navegación principal.
+// - Rutas separadas para login y componentes de layout.
+//
+// Notas de mejora:
+// - Considera usar lazy loading para módulos de admin, estudiante e instructor.
+// - Aplica guards en rutas sensibles según el rol del usuario.
+// - Mantén consistencia en los nombres de carpetas y archivos.
+//
+// Autor: [Tu Nombre]
+// Última actualización: 2025-07-03
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
