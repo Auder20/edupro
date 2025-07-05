@@ -1,51 +1,65 @@
-/* dashboardStudent.pages.css */
-
-/* Contenedor principal del dashboard */
+/* Dashboard Estudiante - Neutro y Profesional */
 .dashboard-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #f5f7fa;
-  padding: 32px 16px;
+  background: #f6f8fa;
+  padding: 2.5rem 1.5rem;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Título principal */
+.dashboard-header {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
 .dashboard-title {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   color: #22223b;
-  margin-bottom: 24px;
+  margin-bottom: 0.3rem;
+}
+
+.dashboard-subtitle {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 /* Tarjetas de resumen */
 .summary-cards {
   display: flex;
-  gap: 24px;
+  gap: 2rem;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 2.5rem;
 }
 
 .summary-card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(34, 34, 59, 0.08);
-  padding: 24px;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(30,41,59,0.07);
+  padding: 1.5rem 2.2rem;
   flex: 1 1 220px;
-  min-width: 220px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+
+.summary-card:hover {
+  box-shadow: 0 4px 24px rgba(30,41,59,0.13);
 }
 
 .summary-card-title {
-  font-size: 1rem;
-  color: #4a4e69;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
 }
 
 .summary-card-value {
-  font-size: 1.5rem;
+  font-size: 2.1rem;
   font-weight: 600;
   color: #22223b;
 }
@@ -82,13 +96,55 @@
   border-bottom: none;
 }
 
+/* Tablas del dashboard */
+.dashboard-table-wrapper {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(30,41,59,0.06);
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+}
+
+.dashboard-table th, .dashboard-table td {
+  padding: 1rem;
+  text-align: left;
+}
+
+.dashboard-table th {
+  background: #f1f5f9;
+  color: #475569;
+  font-weight: 500;
+}
+
+.dashboard-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+/* Notificaciones */
+.dashboard-notifications {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-notification-empty {
+  color: #888;
+  text-align: center;
+  padding: 1.2rem 0;
+}
+
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .summary-cards {
     flex-direction: column;
-    gap: 16px;
+    gap: 1rem;
   }
-  .dashboard-container {
-    padding: 16px 4px;
+  .dashboard-table {
+    min-width: 0;
   }
 }

@@ -4,18 +4,20 @@
     <p>Ensenanza y aprendizaje, desde cualquier lugar, en cualquier momento</p>
   </header>
 
-  <app-navbar></app-navbar>
-
-  <section class="bienvenida">
-    <h2>Contáctanos</h2>
+  <section class="contacts-container">
+    <h2>Contáctanos <span style="font-size:1.3rem;">✉️</span></h2>
     <p>¿Tienes alguna duda o sugerencia? ¡Escríbenos!</p>
-    <form>
-      <label>Nombre:<br><input type="text" name="nombre" required></label><br><br>
-      <label>Email:<br><input type="email" name="email" required></label><br><br>
-      <label>Mensaje:<br><textarea name="mensaje" rows="5" required></textarea></label><br><br>
-      <button type="submit">Enviar ✉️</button>
+    <form class="contacts-form">
+      <label>Nombre:
+        <input type="text" name="nombre" required>
+      </label>
+      <label>Email:
+        <input type="email" name="email" required>
+      </label>
+      <label>Mensaje:
+        <textarea name="mensaje" rows="5" required></textarea>
+      </label>
+      <button type="submit">Enviar</button>
     </form>
   </section>
-
-  <app-footer></app-footer>
 </main>

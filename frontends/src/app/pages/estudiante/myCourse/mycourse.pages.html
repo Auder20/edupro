@@ -1,15 +1,17 @@
-<div class="my-courses-container">
-  <h2>Mis Cursos</h2>
+<div class="mycourse-container">
+  <h1 class="mycourse-title">Mis Cursos</h1>
   <div *ngIf="courses && courses.length; else noCourses">
-    <ul>
-      <li *ngFor="let course of courses">
-        <h3>{{ course.title }}</h3>
-        <p>{{ course.description }}</p>
-        <button [routerLink]="['/curso', course.id]">Ver detalles</button>
-      </li>
-    </ul>
+    <div class="mycourse-list">
+      <div class="mycourse-card" *ngFor="let course of courses">
+        <h2 class="mycourse-card-title">{{ course.title }}</h2>
+        <p class="mycourse-card-description">{{ course.description }}</p>
+        <div class="mycourse-card-actions">
+          <button class="mycourse-btn" [routerLink]="['/curso', course.id]">Ver detalles</button>
+        </div>
+      </div>
+    </div>
   </div>
   <ng-template #noCourses>
-    <p>No estás inscrito en ningún curso.</p>
+    <p style="color:#888; text-align:center;">No estás inscrito en ningún curso.</p>
   </ng-template>
 </div>

@@ -3,38 +3,91 @@
 /* Estilos generales para el componente Home */
 :host {
   display: block;
-  padding: 2rem;
-  background-color: #f8fafc;
+  padding: 0;
+  background: linear-gradient(120deg, #e0ecfc 0%, #f0f4f9 100%);
   min-height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* Título principal */
-h1 {
-  color: #1e293b;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.home-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
 }
 
-/* Subtítulo o descripción */
-p {
-  color: #64748b;
+/* Sección de bienvenida */
+.bienvenida {
+  text-align: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(30,60,120,0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bienvenida h2 {
+  color: #1976d2;
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.bienvenida p {
+  color: #555;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Botón principal */
-.button-primary {
-  background-color: #2563eb;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
+.bienvenida img {
+  margin-top: 1rem;
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(30,60,120,0.08);
 }
 
-.button-primary:hover {
-  background-color: #1d4ed8;
+/* Sección de tarjetas */
+.secciones {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.secciones article {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(30,60,120,0.06);
+  padding: 1.5rem 1.2rem;
+  min-width: 200px;
+  max-width: 260px;
+  text-align: center;
+  flex: 1 1 220px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.secciones article:hover {
+  box-shadow: 0 4px 16px rgba(30,60,120,0.13);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.secciones h3 {
+  color: #388e3c;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsividad */
+@media (max-width: 900px) {
+  .secciones {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .bienvenida {
+    padding: 1.5rem 0.7rem;
+  }
 }

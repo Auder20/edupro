@@ -1,15 +1,16 @@
-<div class="quiz-page">
-  <h1>Quiz para Estudiantes</h1>
+<!-- Quiz para Estudiantes - Profesional y Neutro -->
+<div class="quiz-container">
+  <h1 class="quiz-title">Quiz para Estudiantes</h1>
   <div *ngIf="!quizStarted">
-    <button (click)="startQuiz()">Comenzar Quiz</button>
+    <button class="quiz-btn" (click)="startQuiz()">Comenzar Quiz</button>
   </div>
 
   <div *ngIf="quizStarted && !quizFinished">
     <div class="question-section">
-      <h2>Pregunta {{currentQuestionIndex + 1}} de {{questions.length}}</h2>
+      <h2 class="quiz-question">Pregunta {{currentQuestionIndex + 1}} de {{questions.length}}</h2>
       <p>{{questions[currentQuestionIndex].texto}}</p>
-      <ul>
-        <li *ngFor="let opcion of questions[currentQuestionIndex].opciones">
+      <ul class="quiz-options">
+        <li class="quiz-option" *ngFor="let opcion of questions[currentQuestionIndex].opciones">
           <label>
             <input type="radio" name="respuesta" [value]="opcion" (change)="selectOption(opcion)">
             {{opcion}}
@@ -17,12 +18,12 @@
         </li>
       </ul>
     </div>
-    <button (click)="nextQuestion()" [disabled]="!selectedOption">Siguiente</button>
+    <button class="quiz-btn" (click)="nextQuestion()" [disabled]="!selectedOption">Siguiente</button>
   </div>
 
   <div *ngIf="quizFinished">
-    <h2>¡Quiz finalizado!</h2>
-    <p>Tu puntaje: {{score}} / {{questions.length}}</p>
-    <button (click)="restartQuiz()">Reintentar</button>
+    <h2 class="quiz-finished">¡Quiz finalizado!</h2>
+    <p class="quiz-score">Tu puntaje: {{score}} / {{questions.length}}</p>
+    <button class="quiz-btn" (click)="restartQuiz()">Reintentar</button>
   </div>
 </div>

@@ -1,41 +1,27 @@
 <div class="users-page">
-  <h1>Gestión de Usuarios</h1>
-  <div class="actions">
-    <button mat-raised-button color="primary">Agregar Usuario</button>
+  <h1 class="users-title">Gestión de Usuarios <span style="font-size:1.3rem;">👥</span></h1>
+  <div class="users-actions">
+    <button class="users-add-btn">Agregar Usuario</button>
   </div>
-  <table mat-table [dataSource]="users" class="mat-elevation-z8">
-    <!-- Nombre Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let user"> {{user.name}} </td>
-    </ng-container>
-
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
-    </ng-container>
-
-    <!-- Rol Column -->
-    <ng-container matColumnDef="role">
-      <th mat-header-cell *matHeaderCellDef> Rol </th>
-      <td mat-cell *matCellDef="let user"> {{user.role}} </td>
-    </ng-container>
-
-    <!-- Acciones Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Acciones </th>
-      <td mat-cell *matCellDef="let user">
-        <button mat-icon-button color="accent" (click)="editUser(user)">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" (click)="deleteUser(user)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          <button class="users-edit-btn" (click)="editUser(user)">✏️</button>
+          <button class="users-delete-btn" (click)="deleteUser(user)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>

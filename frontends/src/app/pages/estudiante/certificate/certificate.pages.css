@@ -1,12 +1,12 @@
-/* Estilos para la página de certificado de estudiante */
+/* Certificado Estudiante - Neutro y Profesional */
 
 .certificate-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 32px;
+  max-width: 700px;
+  margin: 48px auto;
+  padding: 36px 28px;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
@@ -18,13 +18,13 @@
 .certificate-title {
   font-size: 2.2rem;
   font-weight: bold;
-  color: #2d3a4b;
+  color: #22223b;
   margin-bottom: 8px;
 }
 
 .certificate-subtitle {
   font-size: 1.1rem;
-  color: #6c7a89;
+  color: #6c757d;
   margin-bottom: 24px;
 }
 
@@ -33,11 +33,18 @@
   color: #333;
   line-height: 1.7;
   margin-bottom: 32px;
+  text-align: center;
+}
+
+.certificate-date {
+  color: #6c757d;
+  font-size: 1rem;
+  margin-top: 18px;
 }
 
 .certificate-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 40px;
 }
@@ -46,20 +53,9 @@
   text-align: center;
 }
 
-.certificate-signature img {
-  width: 120px;
-  height: auto;
-  margin-bottom: 8px;
-}
-
-.certificate-signature-name {
-  font-weight: bold;
-  color: #2d3a4b;
-}
-
-.certificate-date {
-  color: #6c7a89;
-  font-size: 1rem;
+.certificate-signature p {
+  margin: 0;
+  color: #495057;
 }
 
 @media (max-width: 600px) {

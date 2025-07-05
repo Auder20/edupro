@@ -1,40 +1,49 @@
-<!-- dashboardStudent.pages.html -->
+<!-- Dashboard del Estudiante - Profesional y Neutro -->
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Panel de Estudiante</h1>
+    <p class="dashboard-subtitle">Gestiona tu aprendizaje y sigue tu progreso</p>
+  </header>
 
-<div class="dashboard-student">
-  <h1>Bienvenido al Panel de Estudiante</h1>
-
-  <section class="student-summary">
-    <h2>Resumen</h2>
-    <ul>
-      <li><strong>Cursos inscritos:</strong> <!-- {{ enrolledCourses }} --></li>
-      <li><strong>Progreso general:</strong> <!-- {{ progress }}% --></li>
-      <li><strong>Próxima clase:</strong> <!-- {{ nextClass | date }} --></li>
-    </ul>
+  <section class="summary-cards">
+    <div class="summary-card">
+      <span class="summary-card-title">Cursos inscritos</span>
+      <span class="summary-card-value">0</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-card-title">Progreso general</span>
+      <span class="summary-card-value">0%</span>
+    </div>
+    <div class="summary-card">
+      <span class="summary-card-title">Próxima clase</span>
+      <span class="summary-card-value">-</span>
+    </div>
   </section>
 
   <section class="student-courses">
-    <h2>Mis Cursos</h2>
-    <!-- Aquí puedes iterar sobre los cursos del estudiante -->
-    <ul>
-      <!--
-      <li *ngFor="let course of courses">
-        <span>{{ course.name }}</span>
-        <span>Progreso: {{ course.progress }}%</span>
-      </li>
-      -->
-      <li>No tienes cursos inscritos actualmente.</li>
-    </ul>
+    <h2 class="dashboard-section-title">Mis Cursos</h2>
+    <div class="dashboard-table-wrapper">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Progreso</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3" style="text-align:center; color:#888;">No tienes cursos inscritos actualmente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
   <section class="student-notifications">
-    <h2>Notificaciones</h2>
-    <!--
-    <ul>
-      <li *ngFor="let notification of notifications">
-        {{ notification.message }}
-      </li>
+    <h2 class="dashboard-section-title">Notificaciones</h2>
+    <ul class="dashboard-notifications">
+      <li class="dashboard-notification-empty">No tienes notificaciones nuevas.</li>
     </ul>
-    -->
-    <p>No tienes notificaciones nuevas.</p>
   </section>
 </div>

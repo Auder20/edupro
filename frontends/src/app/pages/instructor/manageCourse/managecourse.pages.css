@@ -1,19 +1,16 @@
-/* Estilos base para la página de gestión de cursos del instructor */
+/* Gestionar Curso - Neutro y Profesional */
 
 .manage-course-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 16px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 36px 24px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
 }
 
 .manage-course-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .manage-course-title {
@@ -78,17 +75,87 @@
   color: #991b1b;
 }
 
-@media (max-width: 768px) {
+.manage-course-form .form-group {
+  margin-bottom: 20px;
+}
+
+.manage-course-form label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.manage-course-form input,
+.manage-course-form textarea,
+.manage-course-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #c9ada7;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8f9fa;
+  transition: border-color 0.2s;
+}
+
+.manage-course-form input:focus,
+.manage-course-form textarea:focus,
+.manage-course-form select:focus {
+  border-color: #adb5bd;
+  outline: none;
+}
+
+.manage-course-form button {
+  background: #495057;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.manage-course-form button:hover {
+  background: #22223b;
+}
+
+.btn-add {
+  background: #e9ecef;
+  color: #495057;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add:hover {
+  background: #adb5bd;
+}
+
+.module-list, .student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.module-list li, .student-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f1f1;
+  color: #333;
+}
+
+.module-list li:last-child, .student-list li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 700px) {
   .manage-course-container {
     padding: 16px 4px;
-  }
-  .manage-course-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .course-list th, .course-list td {
-    padding: 8px 4px;
-    font-size: 0.95rem;
   }
 }

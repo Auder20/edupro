@@ -1,27 +1,49 @@
-<div class="dashboard-teacher">
-  <h1>Panel de Instructor</h1>
-  <section class="stats">
-    <div class="stat-card">
-      <h2>Cursos</h2>
-      <p>0</p>
+<!-- Dashboard del Instructor - Profesional y Neutro -->
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>Panel de Instructor</h1>
+    <p class="dashboard-subtitle">Bienvenido a tu espacio de gestión educativa</p>
+  </header>
+
+  <section class="dashboard-cards">
+    <div class="dashboard-card">
+      <span class="dashboard-card-title">Cursos</span>
+      <span class="dashboard-card-value">0</span>
     </div>
-    <div class="stat-card">
-      <h2>Estudiantes</h2>
-      <p>0</p>
+    <div class="dashboard-card">
+      <span class="dashboard-card-title">Estudiantes</span>
+      <span class="dashboard-card-value">0</span>
     </div>
-    <div class="stat-card">
-      <h2>Ingresos</h2>
-      <p>$0</p>
+    <div class="dashboard-card">
+      <span class="dashboard-card-title">Ingresos</span>
+      <span class="dashboard-card-value">$0</span>
     </div>
   </section>
 
-  <section class="recent-courses">
-    <h2>Cursos Recientes</h2>
-    <p>No hay cursos recientes.</p>
+  <section class="dashboard-section">
+    <h2 class="dashboard-section-title">Cursos Recientes</h2>
+    <div class="dashboard-table-wrapper">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3" style="text-align:center; color:#888;">No hay cursos recientes.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <section class="notifications">
-    <h2>Notificaciones</h2>
-    <p>No hay notificaciones.</p>
+  <section class="dashboard-section">
+    <h2 class="dashboard-section-title">Notificaciones</h2>
+    <ul class="dashboard-notifications">
+      <li class="dashboard-notification-empty">No hay notificaciones.</li>
+    </ul>
   </section>
 </div>

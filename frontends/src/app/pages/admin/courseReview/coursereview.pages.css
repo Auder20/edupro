@@ -1,89 +1,148 @@
 /* coursereview.pages.css */
 
 /* Contenedor principal */
-.course-review-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 32px;
+.course-review-page {
+  max-width: 1000px;
+  margin: 2.5rem auto;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,60,120,0.09);
+  padding: 2.5rem 2rem 2rem 2rem;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* Título de la página */
 .course-review-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 24px;
-  color: #22223b;
+  color: #1976d2;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
-/* Lista de reseñas */
-.review-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Reseña individual */
-.review-item {
-  border-bottom: 1px solid #e9ecef;
-  padding: 24px 0;
+/* Barra de búsqueda */
+.search-bar {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
 }
 
-.review-item:last-child {
-  border-bottom: none;
+.search-input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #b3c6e7;
+  border-radius: 7px;
+  background: #f8fafc;
+  font-size: 1rem;
+  width: 220px;
 }
 
-/* Nombre del usuario */
-.review-user {
+.search-btn {
+  background: linear-gradient(90deg, #1976d2 60%, #388e3c 100%);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 7px;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #4a4e69;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(30,60,120,0.10);
+  transition: background 0.2s, transform 0.2s;
 }
 
-/* Fecha de la reseña */
-.review-date {
-  font-size: 0.9rem;
-  color: #9a8c98;
+.search-btn:hover {
+  background: linear-gradient(90deg, #388e3c 60%, #1976d2 100%);
+  transform: scale(1.04);
 }
 
-/* Texto de la reseña */
-.review-text {
-  font-size: 1.1rem;
-  color: #22223b;
+/* Tabla de cursos */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.2rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(30,60,120,0.07);
+}
+
+.course-table th, .course-table td {
+  padding: 14px 10px;
+  text-align: left;
+}
+
+.course-table th {
+  background: #e3f2fd;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+.course-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Insignias de estado */
+.status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+}
+
+.status-pending {
+  background: #ffb300;
 }
 
 /* Botones de acción */
-.review-actions {
-  margin-top: 12px;
-  display: flex;
-  gap: 12px;
-}
-
-.review-action-btn {
-  background: #4a4e69;
-  color: #fff;
+.approve-btn, .reject-btn {
+  background: none;
   border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.2s;
+  margin-right: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 7px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.review-action-btn:hover {
-  background: #22223b;
+.approve-btn {
+  color: #388e3c;
+  border: 1px solid #388e3c;
+}
+
+.approve-btn:hover {
+  background: #388e3c;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.reject-btn {
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+}
+
+.reject-btn:hover {
+  background: #d32f2f;
+  color: #fff;
+  transform: scale(1.08);
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .course-review-container {
-    padding: 16px;
+@media (max-width: 900px) {
+  .course-review-page {
+    padding: 1.2rem 0.5rem;
   }
-  .review-item {
-    padding: 16px 0;
+  .course-table th, .course-table td {
+    padding: 8px 4px;
+    font-size: 0.95rem;
+  }
+  .search-bar {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: stretch;
   }
 }

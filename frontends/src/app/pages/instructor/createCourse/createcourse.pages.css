@@ -1,26 +1,31 @@
-/* Estilos para la página de creación de cursos de instructor */
+/* Crear Curso - Neutro y Profesional */
 
 .create-course-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 32px;
+  max-width: 700px;
+  margin: 48px auto;
+  padding: 36px 28px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
 }
 
 .create-course-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   color: #22223b;
+  text-align: left;
+}
+
+.create-course-form .form-group {
+  margin-bottom: 22px;
 }
 
 .create-course-form label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   font-weight: 500;
-  color: #4a4e69;
+  color: #495057;
 }
 
 .create-course-form input,
@@ -28,23 +33,23 @@
 .create-course-form select {
   width: 100%;
   padding: 10px 12px;
-  margin-bottom: 20px;
   border: 1px solid #c9ada7;
   border-radius: 6px;
   font-size: 1rem;
   background: #f8f9fa;
   transition: border-color 0.2s;
+  margin-bottom: 0;
 }
 
 .create-course-form input:focus,
 .create-course-form textarea:focus,
 .create-course-form select:focus {
-  border-color: #9a8c98;
+  border-color: #adb5bd;
   outline: none;
 }
 
 .create-course-form button {
-  background: #5f6dff;
+  background: #495057;
   color: #fff;
   border: none;
   padding: 12px 32px;
@@ -57,4 +62,10 @@
 
 .create-course-form button:hover {
   background: #22223b;
+}
+
+@media (max-width: 600px) {
+  .create-course-container {
+    padding: 18px 6px;
+  }
 }

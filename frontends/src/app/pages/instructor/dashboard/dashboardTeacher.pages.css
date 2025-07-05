@@ -1,68 +1,88 @@
-/* Estilos para el dashboard del instructor */
+/* Dashboard Instructor - Neutro y Profesional */
 
 .dashboard-container {
-  padding: 2rem;
-  background-color: #f8fafc;
+  padding: 2.5rem 1.5rem;
+  background: #f6f8fa;
   min-height: 100vh;
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .dashboard-header {
-  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.3rem;
   font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
+  color: #22223b;
+  margin-bottom: 0.3rem;
+}
+
+.dashboard-subtitle {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 .dashboard-cards {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .dashboard-card {
   background: #fff;
   border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.08);
-  padding: 1.5rem 2rem;
-  flex: 1 1 250px;
-  min-width: 220px;
+  box-shadow: 0 2px 12px rgba(30, 41, 59, 0.07);
+  padding: 1.5rem 2.2rem;
+  flex: 1 1 220px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 24px rgba(30, 41, 59, 0.13);
 }
 
 .dashboard-card-title {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #6c757d;
   margin-bottom: 0.5rem;
 }
 
 .dashboard-card-value {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #22223b;
 }
 
 .dashboard-section {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .dashboard-section-title {
   font-size: 1.3rem;
   font-weight: 600;
   color: #334155;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.dashboard-table-wrapper {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(30, 41, 59, 0.06);
+  overflow-x: auto;
 }
 
 .dashboard-table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(30, 41, 59, 0.06);
+  min-width: 400px;
 }
 
 .dashboard-table th,
@@ -81,9 +101,25 @@
   background: #f8fafc;
 }
 
+.dashboard-notifications {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-notification-empty {
+  color: #888;
+  text-align: center;
+  padding: 1.2rem 0;
+}
+
 @media (max-width: 900px) {
   .dashboard-cards {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .dashboard-table {
+    min-width: 0;
   }
 }

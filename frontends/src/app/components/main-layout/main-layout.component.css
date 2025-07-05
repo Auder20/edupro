@@ -3,4 +3,18 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: linear-gradient(120deg, #e0ecfc 0%, #f0f4f9 100%);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    padding: 1rem 0.2rem;
+  }
 }

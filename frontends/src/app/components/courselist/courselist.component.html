@@ -1,12 +1,12 @@
 <div class="course-list">
   <h2>Lista de Cursos</h2>
-  <ul>
-    <li *ngFor="let course of courses">
-      <h3>{{ course.title }}</h3>
-      <p>{{ course.description }}</p>
-      <span>Nivel: {{ course.level }}</span>
-    </li>
-  </ul>
+  <div class="course-list__container">
+    <div class="course-item" *ngFor="let course of courses">
+      <h3 class="course-title">{{ course.title }}</h3>
+      <p class="course-description">{{ course.description }}</p>
+      <div class="course-meta">Nivel: {{ course.level }}</div>
+    </div>
+  </div>
   <div *ngIf="courses.length === 0">
     No hay cursos disponibles.
   </div>

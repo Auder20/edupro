@@ -1,9 +1,44 @@
-/* gradeReview.pages.css */
+/* Revisión de Notas Estudiante - Neutro y Profesional */
 .grade-review-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 700px;
+  margin: 48px auto;
+  padding: 36px 28px;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
+}
+.grade-review-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 28px;
+  text-align: left;
+}
+.grade-review-content {
+  margin-top: 18px;
+}
+.grade-review-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(30,41,59,0.06);
+}
+.grade-review-table th, .grade-review-table td {
+  padding: 1rem;
+  text-align: left;
+}
+.grade-review-table th {
+  background: #f1f5f9;
+  color: #475569;
+  font-weight: 500;
+}
+.grade-review-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+@media (max-width: 600px) {
+  .grade-review-container {
+    padding: 16px 4px;
+  }
 }

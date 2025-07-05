@@ -2,26 +2,26 @@
 .register-container {
   max-width: 400px;
   margin: 40px auto;
-  padding: 32px 24px;
+  padding: 2.2rem 1.2rem;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.12);
-  font-family: 'Segoe UI', Arial, sans-serif;
+  box-shadow: 0 4px 24px rgba(30, 60, 120, 0.09);
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .register-title {
   text-align: center;
   font-size: 2rem;
-  color: #2d3e50;
-  margin-bottom: 24px;
-  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
   letter-spacing: 1px;
 }
 
 .register-form label {
   display: block;
   margin-bottom: 6px;
-  color: #34495e;
+  color: #388e3c;
   font-weight: 500;
 }
 
@@ -30,8 +30,8 @@
   width: 100%;
   padding: 10px 12px;
   margin-bottom: 18px;
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
+  border: 1px solid #b3c6e7;
+  border-radius: 8px;
   background: #f8fafc;
   font-size: 1rem;
   transition: border-color 0.2s;
@@ -39,7 +39,7 @@
 
 .register-form input:focus,
 .register-form select:focus {
-  border-color: #4f8cff;
+  border-color: #1976d2;
   outline: none;
   background: #fff;
 }
@@ -47,19 +47,20 @@
 .register-btn {
   width: 100%;
   padding: 12px 0;
-  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+  background: linear-gradient(90deg, #1976d2 0%, #388e3c 100%);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
-  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  box-shadow: 0 1px 4px rgba(30, 60, 120, 0.10);
+  transition: background 0.2s, transform 0.2s;
 }
 
 .register-btn:hover {
-  background: linear-gradient(90deg, #38b6ff 0%, #4f8cff 100%);
+  background: linear-gradient(90deg, #388e3c 0%, #1976d2 100%);
+  transform: scale(1.04);
 }
 
 .register-link {
@@ -79,10 +80,9 @@
 
 @media (max-width: 500px) {
   .register-container {
-    padding: 18px 8px;
-    border-radius: 8px;
+    padding: 1rem 0.2rem;
   }
   .register-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }

@@ -1,67 +1,68 @@
-/* Estilos para la página de inscripción de estudiante */
+/* Inscripción Estudiante - Neutro y Profesional */
 
-.container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 32px;
+.inscripcion-container {
+  max-width: 700px;
+  margin: 48px auto;
+  padding: 36px 28px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
 }
 
-h1, h2 {
-  color: #2d3a4a;
-  margin-bottom: 16px;
+.inscripcion-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 28px;
+  text-align: left;
 }
 
-.form-group {
+.inscripcion-form .form-group {
   margin-bottom: 20px;
 }
 
-label {
+.inscripcion-form label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   font-weight: 500;
-  color: #34495e;
+  color: #495057;
 }
 
-input, select, textarea {
+.inscripcion-form input,
+.inscripcion-form select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #c9ada7;
   border-radius: 6px;
   font-size: 1rem;
+  background: #f8f9fa;
   transition: border-color 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
-  border-color: #2563eb;
+.inscripcion-form input:focus,
+.inscripcion-form select:focus {
+  border-color: #adb5bd;
   outline: none;
 }
 
-.button {
-  background: #2563eb;
+.inscripcion-form button {
+  background: #495057;
   color: #fff;
-  padding: 12px 28px;
   border: none;
+  padding: 12px 32px;
   border-radius: 6px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
 }
 
-.button:hover {
-  background: #1e40af;
-}
-
-.error-message {
-  color: #dc2626;
-  font-size: 0.95rem;
-  margin-top: 4px;
+.inscripcion-form button:hover {
+  background: #22223b;
 }
 
 @media (max-width: 600px) {
-  .container {
-    padding: 16px;
+  .inscripcion-container {
+    padding: 16px 4px;
   }
 }

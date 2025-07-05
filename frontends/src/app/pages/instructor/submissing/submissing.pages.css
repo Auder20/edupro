@@ -1,19 +1,20 @@
 /* Estilos básicos para la página de envíos del instructor */
 
 .submission-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 36px 24px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
 }
 
 .submission-title {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: #2d3748;
+  margin-bottom: 28px;
+  color: #22223b;
+  text-align: left;
 }
 
 .submission-list {
@@ -26,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -34,9 +35,16 @@
   border-bottom: none;
 }
 
+.submission-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .submission-student {
-  font-weight: 500;
-  color: #4a5568;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
 }
 
 .submission-status {
@@ -45,6 +53,8 @@
   font-size: 0.95em;
   background: #edf2f7;
   color: #2b6cb0;
+  display: inline-block;
+  margin-top: 0.2em;
 }
 
 .submission-status.completed {
@@ -57,12 +67,31 @@
   color: #b7791f;
 }
 
+.btn-view {
+  background: #495057;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-view:hover {
+  background: #22223b;
+}
+
+.submission-empty {
+  color: #888;
+  text-align: center;
+  padding: 1.2rem 0;
+}
+
 @media (max-width: 600px) {
   .submission-container {
-    padding: 1rem;
-  }
-  .submission-title {
-    font-size: 1.3rem;
+    padding: 16px 4px;
   }
   .submission-item {
     flex-direction: column;

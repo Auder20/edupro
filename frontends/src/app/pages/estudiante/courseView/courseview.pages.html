@@ -1,10 +1,11 @@
-<div class="course-view-page">
-  <h1>Detalles del Curso</h1>
+<!-- Vista de Curso - Profesional y Neutro -->
+<div class="course-view-container">
+  <h1 class="course-title">Detalles del Curso</h1>
   <div class="course-info">
     <img src="assets/course-placeholder.png" alt="Imagen del curso" class="course-image">
     <div class="course-details">
       <h2>{{ course.title }}</h2>
-      <p>{{ course.description }}</p>
+      <p class="course-description">{{ course.description }}</p>
       <p><strong>Instructor:</strong> {{ course.instructor }}</p>
       <p><strong>Duración:</strong> {{ course.duration }}</p>
     </div>
@@ -12,10 +13,11 @@
 
   <div class="course-content">
     <h3>Contenido del Curso</h3>
-    <ul>
-      <li *ngFor="let module of course.modules">
-        {{ module.title }}
+    <ul class="lesson-list">
+      <li class="lesson-item" *ngFor="let module of course.modules">
+        <span class="lesson-title">{{ module.title }}</span>
       </li>
+      <li *ngIf="!course.modules || course.modules.length === 0" style="color:#888; text-align:center;">No hay módulos disponibles.</li>
     </ul>
   </div>
 

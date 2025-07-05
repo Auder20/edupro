@@ -1,11 +1,9 @@
 <div class="course-review-page">
-  <h1>Revisión de Cursos</h1>
-
+  <h1 class="course-review-title">Revisión de Cursos <span style="font-size:1.3rem;">📋</span></h1>
   <div class="search-bar">
-    <input type="text" placeholder="Buscar curso..." />
-    <button>Buscar</button>
+    <input class="search-input" type="text" placeholder="Buscar curso..." />
+    <button class="search-btn">Buscar</button>
   </div>
-
   <table class="course-table">
     <thead>
       <tr>
@@ -16,14 +14,13 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Aquí se mostrarán los cursos para revisión -->
       <tr>
         <td>Ejemplo de Curso</td>
         <td>Juan Pérez</td>
-        <td>Pendiente</td>
+        <td><span class="status-badge status-pending">Pendiente</span></td>
         <td>
-          <button>Aprobar</button>
-          <button>Rechazar</button>
+          <button class="approve-btn">Aprobar</button>
+          <button class="reject-btn">Rechazar</button>
         </td>
       </tr>
     </tbody>
