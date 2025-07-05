@@ -35,6 +35,10 @@ app.use('/api/courses', require('./src/routes/courseRoute'));
 app.use('/api/certificates', require('./src/routes/certificatesRoute'));
 app.use('/api/transactions', require('./src/routes/transactionsRoute'));
 app.use('/api/forum', require('./src/routes/forumRoute'));
+app.use('/api/course-content', require('./src/controllers/courseContentController'));
+app.use('/api/lesson-comments', require('./src/controllers/lessonCommentController'));
+app.use('/api/quiz-results', require('./src/controllers/quizResultController'));
+app.use('/api/activity-logs', require('./src/controllers/activityLogController'));
 
 (async () => {
   await testMySQLConnection();

@@ -55,4 +55,29 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Obtener foro de un curso por courseId
+router.get('/by-course/:courseId', async (req, res) => {
+  try {
+    const forum = await Forum.findOne({ courseId: parseInt(req.params.courseId) });
+    if (!forum) return res.status(404).json({ error: 'Foro no encontrado' });
+    res.json(forum);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Crear o actualizar foro de un curso por courseId
+router.post('/by-course/:courseId', async (req, res) => {
+  try {
+    const updated = await Forum.findOneAndUpdate(
+      { courseId: parseInt(req.params.courseId) },
+      { $set: req.body },
+      { upsert: true, new: true }
+    );
+    res.status(201).json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 module.exports = router;
