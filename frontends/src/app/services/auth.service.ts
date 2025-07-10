@@ -1,37 +1,57 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
-export type UserRole = 'admin' | 'instructor' | 'estudiante';
+export interface AuthResponse {
+  message: string;
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    role: string;
+  };
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentRole: UserRole | null = null;
+  private apiUrl = `${environment.apiUrl}/auth`;
+  private currentUserSubject = new BehaviorSubject<AuthResponse['user'] | null>(null);
+  currentUser$ = this.currentUserSubject.asObservable();
 
-  constructor() {}
-
-  // Simula iniciar sesión con un rol específico
-  loginAs(role: UserRole): void {
-    this.currentRole = role;
+  constructor(private http: HttpClient) {
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      this.currentUserSubject.next(JSON.parse(user));
+    }
   }
 
-  // Cierra sesión
+  login(email: string, password: string): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, { email, password }).pipe(
+      tap(res => {
+        localStorage.setItem('currentUser', JSON.stringify(res.user));
+        this.currentUserSubject.next(res.user);
+      })
+    );
+  }
+
+  register(name: string, email: string, password: string, role: string = 'student'): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, { name, email, password, role });
+  }
+
   logout(): void {
-    this.currentRole = null;
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 
-  // Devuelve el rol actual
-  getRole(): UserRole | null {
-    return this.currentRole;
+  getRole(): string | null {
+    return this.currentUserSubject.value?.role || null;
   }
 
-  // Verifica si el usuario tiene un rol específico
-  hasRole(role: UserRole): boolean {
-    return this.currentRole === role;
-  }
-
-  // Verifica si el usuario está autenticado
   isAuthenticated(): boolean {
-    return this.currentRole !== null;
+    return !!this.currentUserSubject.value;
   }
 }

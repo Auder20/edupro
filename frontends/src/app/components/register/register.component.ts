@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,10 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
+  error: string | null = null;
+  success: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
-      username: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
@@ -26,9 +29,18 @@ export class RegisterComponent {
 
   onSubmit() {
     this.submitted = true;
+    this.error = null;
+    this.success = null;
     if (this.registerForm.valid) {
-      // Aquí puedes manejar el registro del usuario
-      console.log('Registro exitoso', this.registerForm.value);
+      const { name, email, password } = this.registerForm.value;
+      this.authService.register(name, email, password).subscribe({
+        next: () => {
+          this.success = '¡Registro exitoso!';
+        },
+        error: (err) => {
+          this.error = err.error?.message || 'Error al registrar';
+        }
+      });
     }
   }
 }
