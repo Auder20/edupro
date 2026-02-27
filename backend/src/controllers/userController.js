@@ -1,6 +1,7 @@
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import { User } from '../models/mysql/index.js';
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const db = require('../models/mysql/index.js');
+const { User } = db;
 
 // Register a new user
 const register = async (req, res) => {
@@ -161,7 +162,7 @@ const deleteAccount = async (req, res) => {
   }
 };
 
-export default {
+module.exports = {
   register,
   login,
   getProfile,

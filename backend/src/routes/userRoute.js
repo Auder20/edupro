@@ -1,7 +1,7 @@
-import express from 'express';
-import userController from '../controllers/userController.js';
-import auth from '../middleware/auth.js';
-import { validate, registerSchema, loginSchema } from '../middleware/validate.js';
+const express = require('express');
+const userController = require('../controllers/userController.js');
+const auth = require('../middleware/authMiddleware.js');
+const { validate, registerSchema, loginSchema } = require('../middleware/validate.js');
 
 const router = express.Router();
 
@@ -14,4 +14,4 @@ router.get('/profile', auth, userController.getProfile);
 router.put('/profile', auth, userController.updateProfile);
 router.delete('/profile', auth, userController.deleteAccount);
 
-export default router;
+module.exports = router;

@@ -13,3 +13,5 @@
 {"level":"info","message":"POST /auth/register","service":"edupro-api","timestamp":"2026-02-27 13:56:16"}
 {"level":"info","message":"Servidor corriendo en puerto 3000","service":"edupro-api","timestamp":"2026-02-27 14:05:13"}
 {"level":"info","message":"POST /auth/register","service":"edupro-api","timestamp":"2026-02-27 14:05:49"}
+{"level":"info","message":"Servidor corriendo en puerto 3000","service":"edupro-api","timestamp":"2026-02-27 16:23:31"}
+{"level":"info","message":"Servidor corriendo en puerto 3000","service":"edupro-api","timestamp":"2026-02-27 16:25:26"}
