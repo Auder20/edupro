@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent {
   loading = false;
   error: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -32,9 +32,18 @@ export class LoginComponent {
     this.error = null;
     const { email, password } = this.loginForm.value;
     this.authService.login(email, password).subscribe({
-      next: () => {
+      next: (res) => {
         this.loading = false;
-        alert('¡Inicio de sesión exitoso!');
+        console.log('Login successful', res);
+        // Redirect based on user role
+        const role = res.user.role.toLowerCase();
+        if (role === 'admin') {
+          this.router.navigate(['/admin/dashboard']);
+        } else if (role === 'instructor') {
+          this.router.navigate(['/instructor/dashboard']);
+        } else {
+          this.router.navigate(['/student/dashboard']);
+        }
       },
       error: (err) => {
         this.loading = false;

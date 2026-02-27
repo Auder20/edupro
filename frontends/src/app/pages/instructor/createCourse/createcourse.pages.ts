@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-course',
@@ -10,7 +11,7 @@ export class CreateCoursePage {
   courseDescription: string = '';
   isSubmitting: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   submitCourse() {
     this.isSubmitting = true;
@@ -21,6 +22,8 @@ export class CreateCoursePage {
       alert('Curso creado exitosamente');
       this.courseTitle = '';
       this.courseDescription = '';
+      // Redirect back to instructor dashboard after successful submission
+      this.router.navigate(['/instructor/manage-course']);
     }, 1000);
   }
 }
