@@ -1,8 +1,17 @@
-module.exports = require('../controllers/userController');
-const express = require('express');
-const userController = require('../controllers/userController');
+import express from 'express';
+import userController from '../controllers/userController.js';
+import auth from '../middleware/auth.js';
+import { validate, registerSchema, loginSchema } from '../middleware/validate.js';
+
 const router = express.Router();
 
-router.use('/', userController);
+// Public routes
+router.post('/register', validate(registerSchema), userController.register);
+router.post('/login', validate(loginSchema), userController.login);
 
-module.exports = router;
+// Protected routes
+router.get('/profile', auth, userController.getProfile);
+router.put('/profile', auth, userController.updateProfile);
+router.delete('/profile', auth, userController.deleteAccount);
+
+export default router;
