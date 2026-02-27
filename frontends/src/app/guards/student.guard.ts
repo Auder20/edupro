@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class StudentGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
 
   canActivate(
@@ -16,7 +16,7 @@ export class StudentGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     const role = this.authService.getRole();
-    if (role === 'estudiante') {
+    if (role === 'student' || role === 'estudiante') {
       return true;
     }
     this.router.navigate(['/login']);
