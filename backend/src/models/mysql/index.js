@@ -11,6 +11,11 @@ models.Enrollment = require('./Enrollment')(sequelize, Sequelize.DataTypes);
 models.Transaction = require('./transactions')(sequelize, Sequelize.DataTypes);
 models.Certificate = require('./certificates')(sequelize, Sequelize.DataTypes);
 models.UserProfile = require('./usersProfiles')(sequelize, Sequelize.DataTypes);
+models.ActivityLog = require('./activityLogs')(sequelize, Sequelize.DataTypes);
+models.CourseContent = require('./courseContent')(sequelize, Sequelize.DataTypes);
+models.Forum = require('./forum')(sequelize, Sequelize.DataTypes);
+models.LessonComment = require('./lessonsComments')(sequelize, Sequelize.DataTypes);
+models.QuizResult = require('./quizResult')(sequelize, Sequelize.DataTypes);
 
 // Asociaciones
 Object.keys(models).forEach(modelName => {

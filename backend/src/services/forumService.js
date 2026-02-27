@@ -1,11 +1,11 @@
-const Forum = require('../models/mongo/forum');
+const { Forum } = require('../models/mysql');
 
 async function getAllForums() {
-  return await Forum.find();
+  return await Forum.findAll();
 }
 
 async function getForumById(id) {
-  return await Forum.findById(id);
+  return await Forum.findByPk(id);
 }
 
 async function createForum(data) {

@@ -6,7 +6,6 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./src/config/swagger');
 const logger = require('./src/config/logger');
 const cors = require('cors');
-const connectMongo = require('./src/config/mongo');
 const pool = require('./src/config/mysql');
 const { testMySQLConnection } = require('./src/config/mysql');
 
@@ -52,7 +51,6 @@ app.use('/api/activity-logs', require('./src/controllers/activityLogController')
 
 (async () => {
   await testMySQLConnection();
-  await connectMongo();
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
     logger.info(`Servidor corriendo en puerto ${PORT}`);
