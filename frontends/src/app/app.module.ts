@@ -38,14 +38,10 @@ import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    RegisterComponent,
     AboutComponent,
     ContactsComponent,
     CourseCardComponent,
     CourselistComponent,
-    FooterComponent,
-    NavbarComponent,
     SidebarComponent,
     CourseReviewPage,
     DashboardAdminPage,
@@ -60,8 +56,7 @@ import { MaterialModule } from './material.module';
     CreateCoursePage,
     DashboardTeacherPage,
     ManageCoursePage,
-    SubmissingPage,
-    MainLayoutComponent
+    SubmissingPage
   ],
   imports: [
     BrowserModule,
@@ -71,6 +66,11 @@ import { MaterialModule } from './material.module';
     CommonModule,
     ReactiveFormsModule,
     LoginComponent,
+    HomeComponent,
+    NavbarComponent,
+    MainLayoutComponent,
+    FooterComponent,
+    RegisterComponent,
     MaterialModule
   ],
   providers: [],

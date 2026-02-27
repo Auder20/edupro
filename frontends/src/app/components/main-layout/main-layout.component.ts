@@ -1,19 +1,14 @@
-// main-layout.component.ts
-//
-// Componente de layout principal que estructura la navegación y distribución general de la aplicación.
-//
-// Notas:
-// - Incluye navbar, sidebar y footer.
-// - Usado como contenedor para las rutas hijas principales.
-//
-// Autor: [Tu Nombre]
-// Última actualización: 2025-07-03
-
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-main-layout',
+  standalone: true,
   templateUrl: './main-layout.component.html',
-  styleUrls: ['./main-layout.component.css']
+  styleUrls: ['./main-layout.component.css'],
+  imports: [CommonModule, RouterOutlet, NavbarComponent, FooterComponent]
 })
 export class MainLayoutComponent {}

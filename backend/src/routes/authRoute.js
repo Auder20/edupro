@@ -7,9 +7,9 @@ router.options('*', (req, res) => {
 });
 
 // Registro de usuario
-// router.post('/register', authController.register);
+ router.post('/register', authController.register);
 // Login de usuario
-// router.post('/login', authController.login);
+router.post('/login', authController.login);
 // ...agrega aquí otras rutas de autenticación si las tienes...
 
 module.exports = router;

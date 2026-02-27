@@ -2,21 +2,35 @@
   <section class="bienvenida">
     <h2>¡Bienvenido a EduPro!</h2>
     <p>Explora recursos, herramientas y actividades para potenciar tu aprendizaje y desarrollo profesional.</p>
-    <img src="https://cdn.pixabay.com/photo/2017/01/31/20/14/children-2021649_960_720.png" alt="Personas aprendiendo" width="300">
+    <div class="bienvenida-image">
+      <img src="https://cdn.pixabay.com/photo/2017/01/31/20/14/children-2021649_960_720.png" alt="Personas aprendiendo">
+    </div>
   </section>
 
   <section class="secciones">
-    <article>
-      <h3>📚 Recursos</h3>
+    <article class="card">
+      <div class="card-icon">📚</div>
+      <h3>Recursos</h3>
       <p>Accede a materiales, guías y documentos útiles para tu formación.</p>
     </article>
-    <article>
-      <h3>🛠️ Herramientas</h3>
+    <article class="card">
+      <div class="card-icon">🛠️</div>
+      <h3>Herramientas</h3>
       <p>Utiliza aplicaciones y utilidades para mejorar tu productividad.</p>
     </article>
-    <article>
-      <h3>📝 Actividades</h3>
+    <article class="card">
+      <div class="card-icon">📝</div>
+      <h3>Actividades</h3>
       <p>Participa en ejercicios, talleres y proyectos colaborativos.</p>
     </article>
+  </section>
+  
+  <section class="cta-section">
+    <h3>¿Listo para comenzar?</h3>
+    <p>Únete a nuestra comunidad de aprendizaje</p>
+    <div class="cta-buttons">
+      <a routerLink="/register" class="btn btn-primary">Registrarse</a>
+      <a routerLink="/login" class="btn btn-secondary">Iniciar Sesión</a>
+    </div>
   </section>
 </main>

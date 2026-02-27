@@ -1,11 +1,7 @@
-const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../models/mysql');
 
-const router = express.Router();
-
-// POST /api/auth/register
-router.post('/register', async (req, res) => {
+const register = async (req, res) => {
   try {
     const { name, email, password, role = 'student' } = req.body;
 
@@ -41,9 +37,9 @@ router.post('/register', async (req, res) => {
     console.error(error);
     return res.status(500).json({ message: 'Error del servidor', error: error.message });
   }
-});
-// POST /api/auth/login
-router.post('/login', async (req, res) => {
+};
+
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -74,6 +70,9 @@ router.post('/login', async (req, res) => {
     console.error(error);
     return res.status(500).json({ message: 'Error del servidor', error: error.message });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  register,
+  login
+};

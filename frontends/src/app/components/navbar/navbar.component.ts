@@ -1,26 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  imports: [CommonModule, RouterLink]
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isAuthenticated: boolean = false;
   userRole: string = '';
+  menuOpen: boolean = false;
 
-  constructor() {
-    // Simulación: aquí deberías obtener el estado real de autenticación y rol
-    // Por ejemplo, usando un AuthService
-    // this.isAuthenticated = authService.isAuthenticated();
-    // this.userRole = authService.getUserRole();
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    this.authService.currentUser$.subscribe(user => {
+      this.isAuthenticated = !!user;
+      this.userRole = user?.role || '';
+    });
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
   }
 
   logout() {
-    // Lógica de logout real aquí
+    this.authService.logout();
     this.isAuthenticated = false;
     this.userRole = '';
-    // Redirigir o limpiar sesión
-    console.log('Sesión cerrada');
+    this.router.navigate(['/']);
   }
 }

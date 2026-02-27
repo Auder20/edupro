@@ -1,21 +1,32 @@
 /* Estilo principal para el formulario de registro */
-.register-container {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 2.2rem 1.2rem;
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: linear-gradient(120deg, #e8f5e9 0%, #e3f2fd 100%);
+}
+
+.register-form {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(30, 60, 120, 0.09);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(30, 60, 120, 0.12);
   font-family: 'Poppins', Arial, sans-serif;
 }
 
-.register-title {
+.register-form h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #1976d2;
   margin-bottom: 1.5rem;
   font-weight: 700;
-  letter-spacing: 1px;
+}
+
+.register-form > div {
+  margin-bottom: 1rem;
 }
 
 .register-form label {
@@ -23,18 +34,19 @@
   margin-bottom: 6px;
   color: #388e3c;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .register-form input,
 .register-form select {
   width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 18px;
-  border: 1px solid #b3c6e7;
-  border-radius: 8px;
-  background: #f8fafc;
+  padding: 12px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fafafa;
   font-size: 1rem;
-  transition: border-color 0.2s;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .register-form input:focus,
@@ -42,6 +54,7 @@
   border-color: #1976d2;
   outline: none;
   background: #fff;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
 }
 
 .register-btn {
@@ -78,11 +91,43 @@
   text-decoration: underline;
 }
 
+.error {
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.success {
+  color: #388e3c;
+  background: #e8f5e9;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 @media (max-width: 500px) {
-  .register-container {
-    padding: 1rem 0.2rem;
+  :host {
+    padding: 1rem 0.5rem;
   }
-  .register-title {
-    font-size: 1.2rem;
+  .register-form {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  .register-form h2 {
+    font-size: 1.4rem;
+  }
+  .register-form input,
+  .register-form select {
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 1.5rem 1rem;
   }
 }
