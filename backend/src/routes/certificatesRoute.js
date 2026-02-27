@@ -1,3 +1,4 @@
+module.exports = require('../controllers/certificatesController');
 const express = require('express');
 const certificatesController = require('../controllers/certificatesController');
 const router = express.Router();

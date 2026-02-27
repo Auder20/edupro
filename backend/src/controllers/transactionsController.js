@@ -1,5 +1,5 @@
 const express = require('express');
-const Transaction = require('../models/mysql/transactions');
+const { Transaction } = require('../models/mysql');
 const router = express.Router();
 
 // Crear transacción

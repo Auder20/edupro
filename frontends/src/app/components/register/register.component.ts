@@ -17,8 +17,9 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required]],
+      role: ['', [Validators.required]]
     }, { validator: this.passwordMatchValidator });
   }
 
@@ -32,8 +33,8 @@ export class RegisterComponent {
     this.error = null;
     this.success = null;
     if (this.registerForm.valid) {
-      const { name, email, password } = this.registerForm.value;
-      this.authService.register(name, email, password).subscribe({
+      const { name, email, password, role } = this.registerForm.value;
+      this.authService.register(name, email, password, role).subscribe({
         next: () => {
           this.success = '¡Registro exitoso!';
         },

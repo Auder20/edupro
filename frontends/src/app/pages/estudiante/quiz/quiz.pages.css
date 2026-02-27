@@ -1,26 +1,53 @@
-/* Estilos para la página de quiz de estudiante - Neutro y Profesional */
-
-.quiz-container {
-  max-width: 700px;
-  margin: 48px auto;
-  padding: 36px 28px;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
+/* Default font family */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
+/* Global styles */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #2196f3;
+}
+
+a:hover {
+  color: #1565c0;
+}
+  .quiz-container {
+  max-width: 768px;
+  margin: 48px auto;
+  padding: 36px 28px;
+  background-color: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 4px 24px rgba(30,41,59,0.09);
+  border-radius: 12px;
+  }
+
 .quiz-title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 28px;
-  color: #22223b;
+  color: #333;
   text-align: center;
 }
 
 .quiz-question {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin-bottom: 20px;
-  color: #495057;
+  color: #666;
 }
 
 .quiz-options {
@@ -38,36 +65,47 @@
 }
 
 .quiz-btn {
-  background: #495057;
+  background-color: #2196f3;
   color: #fff;
   border: none;
   padding: 12px 32px;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 10px;
+  transition: background-color 0.2s;
 }
 
 .quiz-btn:hover {
-  background: #22223b;
+  background-color: #1565c0;
+}
+
+.quiz-btn:focus {
+  box-shadow: 0 0 10px #2196f3;
 }
 
 .quiz-finished {
-  color: #495057;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
+  color: #666;
 }
 
 .quiz-score {
-  color: #6c757d;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-bottom: 18px;
+  color: #666;
 }
+
+/* Media queries for responsiveness */
 
 @media (max-width: 600px) {
   .quiz-container {
     padding: 16px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-container {
+    max-width: 95%;
   }
 }

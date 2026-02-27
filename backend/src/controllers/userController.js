@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../models/mysql/user');
+const { User } = require('../models/mysql');
 const router = express.Router();
 
 // Crear usuario

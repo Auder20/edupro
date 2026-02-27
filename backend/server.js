@@ -10,12 +10,21 @@ const connectMongo = require('./src/config/mongo');
 const pool = require('./src/config/mysql');
 const { testMySQLConnection } = require('./src/config/mysql');
 
+
 const app = express();
+
+const corsOptions = {
+  origin: 'http://localhost:4200',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.use(helmet());
 app.use(compression());
-app.use(cors()); // Permitir solicitudes del frontend
-app.use(express.json()); // Parsear JSON
+app.use(express.json());
 
 // Documentación Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -29,7 +38,8 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   res.send('¡Servidor backend funcionando!');
 });
-app.use('/api/auth', require('./src/controllers/authController'));
+app.use('/api/auth', require('./src/routes/authRoute'));
+(app.options('*', cors(corsOptions)));
 app.use('/api/users', require('./src/routes/userRoute'));
 app.use('/api/courses', require('./src/routes/courseRoute'));
 app.use('/api/certificates', require('./src/routes/certificatesRoute'));

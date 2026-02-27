@@ -1,27 +1,33 @@
-const mysql = require('mysql2/promise');
 
-const pool = mysql.createPool({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DATABASE,
-  port: process.env.MYSQL_PORT || 3306,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-});
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize(
+  process.env.MYSQL_DATABASE,
+  process.env.MYSQL_USER,
+  process.env.MYSQL_PASSWORD,
+  {
+    host: process.env.MYSQL_HOST,
+    port: process.env.MYSQL_PORT || 3306,
+    dialect: 'mysql',
+    logging: false,
+    pool: {
+      max: 10,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  }
+);
 
 async function testMySQLConnection() {
   try {
-    const connection = await pool.getConnection();
-    await connection.ping();
-    console.log('MySQL conectado');
-    connection.release();
+    await sequelize.authenticate();
+    console.log('MySQL conectado con Sequelize');
   } catch (error) {
-    console.error('Error conectando a MySQL:', error);
+    console.error('Error conectando a MySQL con Sequelize:', error);
     process.exit(1);
   }
 }
 
-module.exports = pool;
+module.exports = sequelize;
 module.exports.testMySQLConnection = testMySQLConnection;

@@ -1,5 +1,5 @@
 const express = require('express');
-const Enrollment = require('../models/mysql/Enrollment');
+const { Enrollment } = require('../models/mysql');
 const router = express.Router();
 
 // Crear inscripción

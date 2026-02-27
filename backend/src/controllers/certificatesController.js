@@ -1,5 +1,5 @@
 const express = require('express');
-const Certificate = require('../models/mysql/certificates');
+const { Certificate } = require('../models/mysql');
 const router = express.Router();
 
 // Crear certificado
