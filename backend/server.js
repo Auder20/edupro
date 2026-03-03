@@ -16,10 +16,12 @@ const app = express();
 
 const corsOptions = {
   origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Allow non-browser agents
     // Allow localhost or any vercel.app subdomain
-    if (!origin || /^http:\/\/localhost:\d+$/.test(origin) || /^https:\/\/.*\.vercel\.app$/.test(origin)) {
+    if (/^http:\/\/localhost:\d+$/.test(origin) || /^https:\/\/.*\.vercel\.app$/.test(origin)) {
       callback(null, true);
     } else {
+      console.warn(`[CORS] Rejected origin: ${origin}`);
       callback(new Error('Not allowed by CORS (' + origin + ')'));
     }
   },
