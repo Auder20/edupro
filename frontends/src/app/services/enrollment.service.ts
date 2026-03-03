@@ -5,7 +5,10 @@ import { environment } from '../../environments/environment';
 
 export interface Enrollment {
   id?: number;
-  // Agrega aquí los campos reales del modelo de inscripción
+  user_id?: number;
+  course_id?: number;
+  status?: string;
+  [key: string]: any;
 }
 
 @Injectable({
@@ -14,7 +17,7 @@ export interface Enrollment {
 export class EnrollmentService {
   private apiUrl = `${environment.apiUrl}/enrrolment`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Enrollment[]> {
     return this.http.get<Enrollment[]>(this.apiUrl);
