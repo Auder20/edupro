@@ -8,7 +8,7 @@
   <section class="summary-cards">
     <div class="summary-card">
       <span class="summary-card-title">Cursos inscritos</span>
-      <span class="summary-card-value">0</span>
+      <span class="summary-card-value">{{ cursosCount }}</span>
     </div>
     <div class="summary-card">
       <span class="summary-card-title">Progreso general</span>
@@ -32,8 +32,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngIf="inscripciones.length === 0">
             <td colspan="3" style="text-align:center; color:#888;">No tienes cursos inscritos actualmente.</td>
+          </tr>
+          <tr *ngFor="let insc of inscripciones">
+            <!-- Si backend tiene join con course, usamos insc.course.title o insc.courseId -->
+            <td>{{ insc.course?.title || insc.courseId || 'Curso Inscrito' }}</td>
+            <td>0%</td>
+            <td>Activo</td>
           </tr>
         </tbody>
       </table>

@@ -8,15 +8,15 @@
     <div class="stats-cards">
       <div class="stats-card">
         <h3>Usuarios</h3>
-        <p>1,234</p>
+        <p>{{ stats.users }}</p>
       </div>
       <div class="stats-card">
         <h3>Cursos</h3>
-        <p>56</p>
+        <p>{{ stats.courses }}</p>
       </div>
       <div class="stats-card">
         <h3>Inscripciones</h3>
-        <p>789</p>
+        <p>{{ stats.enrollments }}</p>
       </div>
     </div>
   </section>
@@ -33,9 +33,8 @@
   <section class="dashboard-section recent-activity">
     <h2 class="section-title">Actividad Reciente</h2>
     <ul class="activity-list">
-      <li>Juan Pérez se inscribió en "Matemáticas Básicas"</li>
-      <li>Nuevo curso "Ciencias Naturales" creado</li>
-      <li>María López actualizó su perfil</li>
+      <li *ngIf="recentActivity.length === 0">No hay actividad reciente registrada.</li>
+      <li *ngFor="let activity of recentActivity">{{ activity }}</li>
     </ul>
   </section>
 </div>

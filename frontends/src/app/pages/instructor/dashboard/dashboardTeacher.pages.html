@@ -8,7 +8,7 @@
   <section class="dashboard-cards">
     <div class="dashboard-card">
       <span class="dashboard-card-title">Cursos</span>
-      <span class="dashboard-card-value">0</span>
+      <span class="dashboard-card-value">{{ cursosCount }}</span>
     </div>
     <div class="dashboard-card">
       <span class="dashboard-card-title">Estudiantes</span>
@@ -32,8 +32,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngIf="courses.length === 0">
             <td colspan="3" style="text-align:center; color:#888;">No hay cursos recientes.</td>
+          </tr>
+          <tr *ngFor="let c of courses.slice(0, 5)">
+            <td>{{ c.title || c.name || 'Sin Título' }}</td>
+            <td>{{ c.createdAt | date:'shortDate' }}</td>
+            <td>Activo</td>
           </tr>
         </tbody>
       </table>
