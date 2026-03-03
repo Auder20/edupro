@@ -15,9 +15,9 @@ const { testMySQLConnection } = require('./src/config/mysql');
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: process.env.NODE_ENV === 'production' ? 'https://edupro-frontend.vercel.app' : 'http://localhost:4200',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With'],
   credentials: true
 };
 app.use(cors(corsOptions));
