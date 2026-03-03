@@ -1,4 +1,4 @@
-
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../.env') });
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
@@ -10,6 +10,12 @@ const sequelize = new Sequelize(
     port: process.env.MYSQL_PORT || 3306,
     dialect: 'mysql',
     logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    },
     pool: {
       max: 10,
       min: 0,
