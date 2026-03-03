@@ -12,6 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sideBar/sidebar.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { StudentGuard } from './guards/student.guard';
+import { InstructorGuard } from './guards/instructor.guard';
 // Admin pages
 import { CourseReviewPage } from './pages/admin/courseReview/coursereview.pages';
 import { DashboardAdminPage } from './pages/admin/dashboard/dashboardAdmin.pages';
@@ -42,23 +46,79 @@ const routes: Routes = [
       { path: 'contacts', component: ContactsComponent },
       { path: 'course-card', component: CourseCardComponent },
       { path: 'courselist', component: CourselistComponent },
-      // Admin
-      { path: 'admin/course-review', component: CourseReviewPage },
-      { path: 'admin/dashboard', component: DashboardAdminPage },
-      { path: 'admin/report', component: ReportPageComponent },
-      { path: 'admin/users', component: UsersPagesComponent },
-      // Estudiante
-      { path: 'student/certificate', component: CertificatePage },
-      { path: 'student/course-view', component: CourseViewPage },
-      { path: 'student/dashboard', component: DashboardStudentPage },
-      { path: 'student/inscripcion', component: InscripcionPagesComponent },
-      { path: 'student/my-course', component: MyCoursePage },
-      { path: 'student/quiz', component: QuizPagesComponent },
-      // Instructor
-      { path: 'instructor/create-course', component: CreateCoursePage },
-      { path: 'instructor/dashboard', component: DashboardTeacherPage },
-      { path: 'instructor/manage-course', component: ManageCoursePage },
-      { path: 'instructor/submissing', component: SubmissingPage }
+      // Admin (requiere rol admin)
+      {
+        path: 'admin/course-review',
+        component: CourseReviewPage,
+        canActivate: [AuthGuard, AdminGuard]
+      },
+      {
+        path: 'admin/dashboard',
+        component: DashboardAdminPage,
+        canActivate: [AuthGuard, AdminGuard]
+      },
+      {
+        path: 'admin/report',
+        component: ReportPageComponent,
+        canActivate: [AuthGuard, AdminGuard]
+      },
+      {
+        path: 'admin/users',
+        component: UsersPagesComponent,
+        canActivate: [AuthGuard, AdminGuard]
+      },
+      // Estudiante (requiere rol student/estudiante)
+      {
+        path: 'student/certificate',
+        component: CertificatePage,
+        canActivate: [AuthGuard, StudentGuard]
+      },
+      {
+        path: 'student/course-view',
+        component: CourseViewPage,
+        canActivate: [AuthGuard, StudentGuard]
+      },
+      {
+        path: 'student/dashboard',
+        component: DashboardStudentPage,
+        canActivate: [AuthGuard, StudentGuard]
+      },
+      {
+        path: 'student/inscripcion',
+        component: InscripcionPagesComponent,
+        canActivate: [AuthGuard, StudentGuard]
+      },
+      {
+        path: 'student/my-course',
+        component: MyCoursePage,
+        canActivate: [AuthGuard, StudentGuard]
+      },
+      {
+        path: 'student/quiz',
+        component: QuizPagesComponent,
+        canActivate: [AuthGuard, StudentGuard]
+      },
+      // Instructor (requiere rol instructor)
+      {
+        path: 'instructor/create-course',
+        component: CreateCoursePage,
+        canActivate: [AuthGuard, InstructorGuard]
+      },
+      {
+        path: 'instructor/dashboard',
+        component: DashboardTeacherPage,
+        canActivate: [AuthGuard, InstructorGuard]
+      },
+      {
+        path: 'instructor/manage-course',
+        component: ManageCoursePage,
+        canActivate: [AuthGuard, InstructorGuard]
+      },
+      {
+        path: 'instructor/submissing',
+        component: SubmissingPage,
+        canActivate: [AuthGuard, InstructorGuard]
+      }
     ]
   },
   { path: 'login', component: LoginComponent },
