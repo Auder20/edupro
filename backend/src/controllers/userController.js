@@ -162,10 +162,24 @@ const deleteAccount = async (req, res) => {
   }
 };
 
+// Get all users (Admin only but handled by router typically)
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.findAll({
+      attributes: { exclude: ['password'] }
+    });
+    res.json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 module.exports = {
   register,
   login,
   getProfile,
   updateProfile,
-  deleteAccount
+  deleteAccount,
+  getAllUsers
 };

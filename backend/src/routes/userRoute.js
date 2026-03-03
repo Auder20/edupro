@@ -14,4 +14,7 @@ router.get('/profile', auth, userController.getProfile);
 router.put('/profile', auth, userController.updateProfile);
 router.delete('/profile', auth, userController.deleteAccount);
 
+// Admin / General routes
+router.get('/', userController.getAllUsers);
+
 module.exports = router;
