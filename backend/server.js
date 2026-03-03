@@ -15,9 +15,16 @@ const { testMySQLConnection } = require('./src/config/mysql');
 const app = express();
 
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://edupro-frontend.vercel.app' : 'http://localhost:4200',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With'],
+  origin: function (origin, callback) {
+    // Allow localhost or any vercel.app subdomain
+    if (!origin || /^http:\/\/localhost:\d+$/.test(origin) || /^https:\/\/.*\.vercel\.app$/.test(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS (' + origin + ')'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Content-Length', 'X-Requested-With', 'Accept'],
   credentials: true
 };
 app.use(cors(corsOptions));
