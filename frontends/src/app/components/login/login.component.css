@@ -1,16 +1,16 @@
-body {
+:host {
+  display: block;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   background: linear-gradient(to bottom, #ffdee9, #b5fffc);
-  height: 100vh;
-  overflow: hidden;
 }
 
 .login-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .decorations .sun {
