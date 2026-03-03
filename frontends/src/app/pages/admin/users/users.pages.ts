@@ -8,14 +8,41 @@ import { Component } from '@angular/core';
 export class UsersPagesComponent {
   // Aquí puedes agregar la lógica para la página de administración de usuarios
 
-  users = [
-    { id: 1, name: 'Juan Pérez', email: 'juan@example.com', role: 'admin' },
-    { id: 2, name: 'Ana Garay', email: 'ana@example.com', role: 'instructor' },
-    { id: 3, name: 'Luis Martínez', email: 'luis@example.com', role: 'estudiante' }
-  ];
+  users: any[] = [];
   displayedColumns: string[] = ['name', 'email', 'role', 'actions'];
 
   constructor() {}
+
+  ngOnInit() {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    // Lógica para cargar usuarios desde el backend
+    console.log('Cargando usuarios...');
+  }
+
+  // Ejemplo de método para agregar un usuario
+  addUser(user: { id: number; name: string; email: string; role: string }) {
+    // Lógica para agregar usuario al backend
+    console.log('Agregar usuario', user);
+  }
+
+  // Ejemplo de método para eliminar un usuario
+  removeUser(id: number) {
+    // Lógica para eliminar usuario del backend
+    console.log('Eliminar usuario con id:', id);
+  }
+
+  editUser(user: any) {
+    // Lógica para editar usuario
+    console.log('Editar usuario', user);
+  }
+
+  deleteUser(user: any) {
+    // Lógica para eliminar usuario
+    console.log('Eliminar usuario', user);
+  }
 
   // Ejemplo de método para agregar un usuario
   addUser(user: { id: number; name: string; email: string; role: string }) {

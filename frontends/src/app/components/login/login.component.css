@@ -3,303 +3,169 @@
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(to bottom, #ffdee9, #b5fffc);
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .login-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
-}
-
-.decorations .sun {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, #ffeb3b, #fbc02d);
-  border-radius: 50%;
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  box-shadow: 0 0 40px #ffeb3b;
-  animation: pulse 3s infinite;
-}
-
-.cloud {
-  position: absolute;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow:
-    30px 10px 0px #fff,
-    60px 10px 0px #fff;
-}
-
-.cloud1 {
-  width: 60px;
-  height: 60px;
-  top: 80px;
-  right: 100px;
-}
-
-.cloud2 {
-  width: 50px;
-  height: 50px;
-  top: 150px;
-  left: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-box {
   max-width: 420px;
   width: 90%;
-  margin: 100px auto;
-  background: #fff9c4;
-  padding: 2rem 1.5rem;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-.login-box h1 {
-  color: #ec407a;
-  font-size: 28px;
+.logo h1 {
+  color: #667eea;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.login-box h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .login-box p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #666;
 }
 
 .input-group {
   display: flex;
-  align-items: center;
-  background: #ffffff;
-  border: 2px solid #ec407a;
-  border-radius: 30px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  transition: 0.3s;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
-.input-group span {
-  margin-right: 10px;
-  font-size: 20px;
+.input-group label {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.9rem;
 }
 
 .input-group input {
-  border: none;
-  outline: none;
-  width: 100%;
-  background: transparent;
-  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  background: #f9f9f9;
 }
 
-button {
-  background: linear-gradient(90deg, #ff4081, #f50057);
+.input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-group.error input {
+  border-color: #e74c3c;
+  background: #fdf2f2;
+}
+
+.login-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 30px;
+  padding: 14px 30px;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s;
+  width: 100%;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(255, 64, 129, 0.5);
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.forgot {
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.forgot-password {
   display: block;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #3f51b5;
+  margin: 15px 0 20px;
+  font-size: 0.9rem;
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 30px #ffeb3b;
-  }
-  50% {
-    box-shadow: 0 0 60px #fbc02d;
-  }
-  100% {
-    box-shadow: 0 0 30px #ffeb3b;
-  }
+.forgot-password:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.signup-link {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.signup-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.signup-link a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #e74c3c;
+  background: #fdf2f2;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  border: 1px solid #f1d7d7;
+}
+
+.input-group.error {
+  color: #e74c3c;
 }
 
 @media screen and (max-width: 500px) {
   .login-box {
-    margin: 60px auto;
-    padding: 1.5rem 1rem;
-  width: 95%;
-  border-radius: 20px;
+    padding: 2rem 1.5rem;
   }
-  .login-box h1 {
-    font-size: 22px;
+  
+  .logo h1 {
+    font-size: 2rem;
   }
-  .decorations {
-    display: none;
+  
+  .login-box h2 {
+    font-size: 1.5rem;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .decorations .sun {
-    width: 60px;
-    height: 60px;
-    top: 20px;
-    left: 20px;
-  }
-  .cloud1, .cloud2 {
-    display: none;
-  }
-  .book, .pencil, .star, .balloon, .mascot, .tree, .rainbow, .boy-kite, .girl-kite, .flower {
-    font-size: 24px;
-  }
-}
-
-.book,
-.pencil,
-.star,
-.balloon,
-.mascot {
-  position: absolute;
-  font-size: 32px;
-  animation: float 4s ease-in-out infinite;
-  z-index: 0;
-}
-
-/* Posiciones personalizadas */
-.book {
-  top: 60%;
-  left: 10%;
-}
-
-.pencil {
-  top: 20%;
-  right: 10%;
-}
-
-.star {
-  top: 10%;
-  left: 50%;
-}
-
-.balloon {
-  bottom: 10%;
-  right: 20%;
-}
-
-.mascot {
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 40px;
-}
-
-/* Animación tipo flotante */
-@keyframes float {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-}
-.scene {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none; /* evita interferencias con inputs */
-}
-
-/* Elementos */
-.tree, .boy-kite, .girl-kite, .rainbow, .flower {
-  position: absolute;
-  font-size: 2.5rem;
-  animation: float 4s ease-in-out infinite alternate;
-}
-
-.cloud {
-  position: absolute;
-  font-size: 3rem;
-  animation: cloud-move 20s linear infinite;
-}
-
-.cloud1 {
-  top: 50px;
-  left: -100px;
-}
-
-.cloud2 {
-  top: 100px;
-  left: -200px;
-}
-
-.tree {
-  bottom: 10%;
-  left: 3%;
-}
-
-.rainbow {
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.boy-kite {
-  bottom: 15%;
-  right: 18%;
-  animation-delay: 1s;
-}
-
-.girl-kite {
-  bottom: 12%;
-  right: 5%;
-  animation-delay: 2s;
-}
-
-.flower {
-  bottom: 6%;
-  left: 10%;
-}
-
-/* Animaciones */
-@keyframes float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
-
-@keyframes cloud-move {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(120vw); }
-}
-
-/* Estilos para mensajes de error */
-.error-message {
-  color: #d32f2f;
-  background: #ffebee;
-  padding: 10px 15px;
-  border-radius: 8px;
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.input-group.error {
-  border-color: #d32f2f;
-  background: #ffebee;
-}
-
-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
 }
