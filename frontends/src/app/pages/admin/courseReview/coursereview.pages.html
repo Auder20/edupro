@@ -1,8 +1,9 @@
 <div class="course-review-page">
   <h1 class="course-review-title">Revisión de Cursos <span style="font-size:1.3rem;">📋</span></h1>
   <div class="search-bar">
-    <input class="search-input" type="text" placeholder="Buscar curso..." />
-    <button class="search-btn">Buscar</button>
+    <input class="search-input" type="text" placeholder="Buscar curso..." [(ngModel)]="searchTerm"
+      (ngModelChange)="searchCourse()" />
+    <button class="search-btn" (click)="searchCourse()">Buscar</button>
   </div>
   <table class="course-table">
     <thead>
@@ -14,13 +15,23 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Ejemplo de Curso</td>
-        <td>Juan Pérez</td>
-        <td><span class="status-badge status-pending">Pendiente</span></td>
+      <tr *ngIf="filteredCourses.length === 0">
+        <td colspan="4" style="text-align:center; color:#888;">No se encontraron cursos.</td>
+      </tr>
+      <tr *ngFor="let c of filteredCourses">
+        <td>{{ c.title || c.name || 'Curso Sin Título' }}</td>
+        <td>{{ c.Instructor?.name || 'Varios/No Asignado' }}</td>
         <td>
-          <button class="approve-btn">Aprobar</button>
-          <button class="reject-btn">Rechazar</button>
+          <span class="status-badge"
+            [ngClass]="{'status-pending': c.status === 'draft', 'status-published': c.status === 'published'}">
+            {{ c.status === 'draft' ? 'Pendiente' : (c.status === 'published' ? 'Publicado' : c.status) }}
+          </span>
+        </td>
+        <td>
+          <button class="approve-btn" *ngIf="c.status !== 'published'"
+            (click)="updateStatus(c.id, 'published')">Aprobar</button>
+          <button class="reject-btn" *ngIf="c.status !== 'archived'"
+            (click)="updateStatus(c.id, 'archived')">Rechazar</button>
         </td>
       </tr>
     </tbody>

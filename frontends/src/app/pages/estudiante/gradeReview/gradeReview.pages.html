@@ -11,8 +11,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngIf="grades.length === 0">
           <td colspan="3" style="text-align:center; color:#888;">No hay notas disponibles.</td>
+        </tr>
+        <tr *ngFor="let g of grades">
+          <td>{{ g.lessonTitle || g.courseId || 'Curso Inscrito' }}</td>
+          <td>{{ g.score }}%</td>
+          <td>{{ g.score >= 70 ? 'Aprobado' : 'Reprobado' }}</td>
         </tr>
       </tbody>
     </table>

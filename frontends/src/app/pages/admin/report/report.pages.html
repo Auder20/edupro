@@ -3,12 +3,12 @@
 
   <section class="report-section report-filters">
     <h2 class="section-title">Filtros</h2>
-    <form class="report-form">
+    <form class="report-form" (submit)="generarReporte($event)">
       <label for="date-from">Desde:
-        <input type="date" id="date-from" name="date-from">
+        <input type="date" id="date-from" name="date-from" [(ngModel)]="dateFrom">
       </label>
       <label for="date-to">Hasta:
-        <input type="date" id="date-to" name="date-to">
+        <input type="date" id="date-to" name="date-to" [(ngModel)]="dateTo">
       </label>
       <button class="report-btn" type="submit">Generar Reporte</button>
     </form>
@@ -20,23 +20,20 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Nombre</th>
-          <th>Fecha</th>
+          <th>Nombre (Usuario)</th>
+          <th>Fecha de Registro</th>
           <th>Estado</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Ejemplo 1</td>
-          <td>2024-06-01</td>
-          <td>Completado</td>
+        <tr *ngIf="filteredReports.length === 0">
+          <td colspan="4" style="text-align:center; color:#888;">No hay resultados con estos filtros.</td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>Ejemplo 2</td>
-          <td>2024-06-02</td>
-          <td>Pendiente</td>
+        <tr *ngFor="let item of filteredReports">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ (item.created_at || item.createdAt) | date:'yyyy-MM-dd' }}</td>
+          <td>{{ item.status || 'Completado' }}</td>
         </tr>
       </tbody>
     </table>

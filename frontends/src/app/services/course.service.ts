@@ -5,7 +5,12 @@ import { environment } from '../../environments/environment';
 
 export interface Course {
   id?: number;
-  // Agrega aquí los campos reales del modelo de curso
+  title?: string;
+  name?: string;
+  description?: string;
+  category?: string;
+  status?: string;
+  [key: string]: any;
 }
 
 @Injectable({
@@ -14,7 +19,7 @@ export interface Course {
 export class CourseService {
   private apiUrl = `${environment.apiUrl}/courses`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Course[]> {
     return this.http.get<Course[]>(this.apiUrl);

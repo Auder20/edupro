@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from '../../../services/course.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-manage-course',
@@ -6,32 +8,62 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./managecourse.pages.scss']
 })
 export class ManageCoursePage implements OnInit {
-
   courses: any[] = [];
+  selectedCourse: any = null;
 
-  constructor() { }
+  constructor(
+    private courseService: CourseService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
-    // Aquí puedes cargar los cursos del instructor
     this.loadCourses();
   }
 
   loadCourses(): void {
-    // Simulación de carga de cursos
-    this.courses = [
-      { id: 1, title: 'Curso de Angular', status: 'Publicado' },
-      { id: 2, title: 'Curso de TypeScript', status: 'Borrador' }
-    ];
+    this.courseService.getAll().subscribe({
+      next: (data) => {
+        const arr = Array.isArray(data) ? data : (data as any).data || [];
+        this.courses = arr;
+      },
+      error: (err) => console.error('Error al cargar los cursos', err)
+    });
   }
 
-  editCourse(courseId: number): void {
-    // Lógica para editar un curso
-    console.log('Editar curso', courseId);
+  editCourse(course: any): void {
+    this.selectedCourse = { ...course };
+  }
+
+  cancelEdit(): void {
+    this.selectedCourse = null;
+  }
+
+  saveCourse(): void {
+    if (this.selectedCourse && this.selectedCourse.id) {
+      const payload = {
+        title: this.selectedCourse.title || this.selectedCourse.name,
+        description: this.selectedCourse.description,
+        category: this.selectedCourse.category
+      };
+      this.courseService.update(this.selectedCourse.id, payload).subscribe({
+        next: () => {
+          this.loadCourses();
+          this.selectedCourse = null;
+        },
+        error: (err) => console.error('Error actualizando curso', err)
+      });
+    }
   }
 
   deleteCourse(courseId: number): void {
-    // Lógica para eliminar un curso
-    console.log('Eliminar curso', courseId);
-    this.courses = this.courses.filter(course => course.id !== courseId);
+    if (confirm('¿Seguro de que deseas eliminar este curso?')) {
+      this.courseService.delete(courseId).subscribe({
+        next: () => {
+          this.courses = this.courses.filter(course => course.id !== courseId);
+          if (this.selectedCourse?.id === courseId) this.selectedCourse = null;
+        },
+        error: (err) => console.error('Error al eliminar el curso', err)
+      });
+    }
   }
 }

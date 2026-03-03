@@ -1,21 +1,35 @@
 <!-- Certificado de Estudiante - Profesional y Neutro -->
 <div class="certificate-container">
   <header class="certificate-header">
-    <h1 class="certificate-title">Certificado de Finalización</h1>
+    <h1 class="certificate-title">Mis Certificados</h1>
     <p class="certificate-subtitle">Reconocimiento al esfuerzo y dedicación</p>
   </header>
-  <main class="certificate-body">
-    <p>
-      Este certificado acredita que <strong>[Nombre del Estudiante]</strong> ha completado satisfactoriamente el curso <strong>[Nombre del Curso]</strong>.
-    </p>
-    <p class="certificate-date">
-      Fecha de emisión: <strong>[Fecha]</strong>
-    </p>
-  </main>
-  <footer class="certificate-footer">
-    <div class="certificate-signature">
-      <p>__________________________</p>
-      <p>Firma del Instructor</p>
+
+  <main class="certificate-body" *ngIf="certificates.length > 0; else noCertificates">
+    <div class="certificate-card" *ngFor="let cert of certificates">
+      <div class="certificate-card-content">
+        <h3>Certificado de Finalización</h3>
+        <p>
+          Este certificado acredita que <strong>{{ studentName }}</strong> ha completado satisfactoriamente el curso
+          <strong>{{ cert.courseName || 'Curso Finalizado' }}</strong>.
+        </p>
+        <p class="certificate-date">
+          Fecha de emisión: <strong>{{ cert.issueDate | date:'fullDate' }}</strong>
+        </p>
+      </div>
+      <footer class="certificate-footer">
+        <div class="certificate-signature">
+          <p>__________________________</p>
+          <p>Firma del Instructor</p>
+        </div>
+        <button class="download-cert-btn" (click)="downloadCertificate(cert.id)">Descargar PDF</button>
+      </footer>
     </div>
-  </footer>
+  </main>
+
+  <ng-template #noCertificates>
+    <main class="certificate-body">
+      <p style="text-align:center; padding: 2rem;">Aún no has obtenido ningún certificado.</p>
+    </main>
+  </ng-template>
 </div>

@@ -4,46 +4,63 @@
     <h1 class="manage-course-title">Gestionar Curso</h1>
   </header>
 
-  <section class="course-details">
-    <h2>Detalles del Curso</h2>
-    <form class="manage-course-form">
+  <section class="course-list-section" *ngIf="!selectedCourse">
+    <h2>Mis Cursos</h2>
+    <div class="dashboard-table-wrapper">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Categoría</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="courses.length === 0">
+            <td colspan="4" style="text-align:center; color:#888;">No has creado ningún curso todavía.</td>
+          </tr>
+          <tr *ngFor="let course of courses">
+            <td>{{ course.title || course.name }}</td>
+            <td>{{ course.category || 'General' }}</td>
+            <td>{{ course.status }}</td>
+            <td>
+              <button class="btn-action edit" (click)="editCourse(course)">Editar</button>
+              <button class="btn-action delete" (click)="deleteCourse(course.id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="course-details" *ngIf="selectedCourse">
+    <h2>Detalles del Curso: {{ selectedCourse.title }}</h2>
+    <form class="manage-course-form" (submit)="saveCourse(); $event.preventDefault()">
       <div class="form-group">
         <label for="course-title">Título del Curso:</label>
-        <input id="course-title" name="course-title" type="text" placeholder="Ingrese el título del curso" />
+        <input id="course-title" name="course-title" type="text" [(ngModel)]="selectedCourse.title"
+          placeholder="Ingrese el título del curso" />
       </div>
       <div class="form-group">
         <label for="course-description">Descripción:</label>
-        <textarea id="course-description" name="course-description" placeholder="Ingrese la descripción"></textarea>
+        <textarea id="course-description" name="course-description" [(ngModel)]="selectedCourse.description"
+          placeholder="Ingrese la descripción"></textarea>
       </div>
       <div class="form-group">
         <label for="course-category">Categoría:</label>
-        <select id="course-category" name="course-category">
+        <select id="course-category" name="course-category" [(ngModel)]="selectedCourse.category">
           <option value="">Seleccione una categoría</option>
-          <option value="programacion">Programación</option>
-          <option value="matematicas">Matemáticas</option>
-          <option value="idiomas">Idiomas</option>
+          <option value="Programación">Programación</option>
+          <option value="Diseño">Diseño</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Negocios">Negocios</option>
         </select>
       </div>
-      <button type="submit">Guardar Cambios</button>
+      <div class="actions-btns">
+        <button type="submit">Guardar Cambios</button>
+        <button type="button" class="btn-cancel" (click)="cancelEdit()">Cancelar</button>
+      </div>
     </form>
-  </section>
-
-  <section class="course-content">
-    <h2>Contenido del Curso</h2>
-    <button type="button" class="btn-add">Agregar Módulo</button>
-    <ul class="module-list">
-      <li>Módulo 1: Introducción</li>
-      <li>Módulo 2: Conceptos Básicos</li>
-      <!-- Más módulos aquí -->
-    </ul>
-  </section>
-
-  <section class="course-students">
-    <h2>Estudiantes Inscritos</h2>
-    <ul class="student-list">
-      <li>Juan Pérez</li>
-      <li>María López</li>
-      <!-- Más estudiantes aquí -->
-    </ul>
   </section>
 </div>

@@ -12,9 +12,9 @@ export interface Quiz {
   providedIn: 'root',
 })
 export class QuizService {
-  private apiUrl = `${environment.apiUrl}/quizzes`;
+  private apiUrl = `${environment.apiUrl}/quiz-results`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Quiz[]> {
     return this.http.get<Quiz[]>(this.apiUrl);
