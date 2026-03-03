@@ -11,7 +11,7 @@ export class UsersPagesComponent {
   users: any[] = [];
   displayedColumns: string[] = ['name', 'email', 'role', 'actions'];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.loadUsers();
@@ -22,45 +22,24 @@ export class UsersPagesComponent {
     console.log('Cargando usuarios...');
   }
 
-  // Ejemplo de método para agregar un usuario
+  // Lógica para agregar un usuario
   addUser(user: { id: number; name: string; email: string; role: string }) {
-    // Lógica para agregar usuario al backend
     console.log('Agregar usuario', user);
-  }
-
-  // Ejemplo de método para eliminar un usuario
-  removeUser(id: number) {
-    // Lógica para eliminar usuario del backend
-    console.log('Eliminar usuario con id:', id);
-  }
-
-  editUser(user: any) {
-    // Lógica para editar usuario
-    console.log('Editar usuario', user);
-  }
-
-  deleteUser(user: any) {
-    // Lógica para eliminar usuario
-    console.log('Eliminar usuario', user);
-  }
-
-  // Ejemplo de método para agregar un usuario
-  addUser(user: { id: number; name: string; email: string; role: string }) {
     this.users.push(user);
   }
 
-  // Ejemplo de método para eliminar un usuario
+  // Lógica para eliminar un usuario por ID
   removeUser(id: number) {
+    console.log('Eliminar usuario con id:', id);
     this.users = this.users.filter(user => user.id !== id);
   }
 
   editUser(user: any) {
-    // Lógica para editar usuario
     console.log('Editar usuario', user);
   }
 
   deleteUser(user: any) {
-    // Lógica para eliminar usuario
+    console.log('Eliminar usuario', user);
     this.users = this.users.filter(u => u.id !== user.id);
   }
 }
