@@ -37,6 +37,10 @@ async function generateCertificate(userId, courseId) {
     // Aquí podrías generar un PDF real usando una librería como pdfkit o puppeteer
     // Por ahora, solo simula la creación del archivo
     const certPath = path.join(__dirname, '../../certificates', `${user.id}_${course.id}.pdf`);
+    const certDir = path.dirname(certPath);
+    if (!fs.existsSync(certDir)) {
+      fs.mkdirSync(certDir, { recursive: true });
+    }
     fs.writeFileSync(certPath, `Certificado para ${user.name} en el curso ${course.title}`);
 
     console.log(`Certificado generado para ${user.name} en ${course.title}`);

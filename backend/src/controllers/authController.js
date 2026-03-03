@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { User } = require('../models/mysql');
 
 const register = async (req, res) => {
@@ -23,8 +24,18 @@ const register = async (req, res) => {
       role
     });
 
+    const payload = {
+      id: newUser.id,
+      email: newUser.email,
+      role: newUser.role
+    };
+
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN
+    });
+
     return res.status(201).json({
-      message: 'Usuario registrado exitosamente',
+      token,
       user: {
         id: newUser.id,
         name: newUser.name,
@@ -57,8 +68,18 @@ const login = async (req, res) => {
       return res.status(401).json({ message: 'Credenciales inválidas' });
     }
 
+    const payload = {
+      id: user.id,
+      email: user.email,
+      role: user.role
+    };
+
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN
+    });
+
     return res.status(200).json({
-      message: 'Inicio de sesión exitoso',
+      token,
       user: {
         id: user.id,
         name: user.name,

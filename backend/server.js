@@ -6,6 +6,8 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./src/config/swagger');
 const logger = require('./src/config/logger');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+const authMiddleware = require('./src/middleware/authMiddleware');
 const pool = require('./src/config/mysql');
 const { testMySQLConnection } = require('./src/config/mysql');
 
@@ -25,6 +27,13 @@ app.use(helmet());
 app.use(compression());
 app.use(express.json());
 
+// Rate limiting global
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100
+});
+app.use(limiter);
+
 // Documentación Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
@@ -41,9 +50,10 @@ app.use('/api/auth', require('./src/routes/authRoute'));
 (app.options('*', cors(corsOptions)));
 app.use('/api/users', require('./src/routes/userRoute'));
 app.use('/api/courses', require('./src/routes/courseRoute'));
-app.use('/api/certificates', require('./src/routes/certificatesRoute'));
-app.use('/api/transactions', require('./src/routes/transactionsRoute'));
-app.use('/api/forum', require('./src/routes/forumRoute'));
+app.use('/api/enrollments', require('./src/routes/enrrolmentRoute'));
+app.use('/api/certificates', authMiddleware, require('./src/routes/certificatesRoute'));
+app.use('/api/transactions', authMiddleware, require('./src/routes/transactionsRoute'));
+app.use('/api/forum', authMiddleware, require('./src/routes/forumRoute'));
 app.use('/api/course-content', require('./src/controllers/courseContentController'));
 app.use('/api/lesson-comments', require('./src/controllers/lessonCommentController'));
 app.use('/api/quiz-results', require('./src/controllers/quizResultController'));

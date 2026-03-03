@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/authController');
+const userController = require('../controllers/userController');
 
 router.options('*', (req, res) => {
   res.sendStatus(200);
 });
 
 // Registro de usuario
- router.post('/register', authController.register);
+router.post('/register', userController.register);
 // Login de usuario
-router.post('/login', authController.login);
+router.post('/login', userController.login);
 // ...agrega aquí otras rutas de autenticación si las tienes...
 
 module.exports = router;
