@@ -48,8 +48,9 @@ DB_DIALECT=mysql
 JWT_SECRET=secret_key
 JWT_EXPIRES_IN=24h
 ```
-
+## screeshots
+screenchots/
 ## Demo en Producción
 
-- **Frontend:** [Enlace pendiente]
-- **API (Swagger):** [Documentación Interactiva](https://tudonimio.onrender.com/api-docs)
+- **Frontend:** [https://edupro-sandy.vercel.app/](https://edupro-sandy.vercel.app/)
+
