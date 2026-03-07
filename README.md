@@ -20,7 +20,23 @@ Las plataformas educativas existentes son complejas de configurar o costosas par
 
 ## Screenshots
 
-screenshots/
+### Página Principal
+![Página Principal](screenshots/home.jpeg)
+
+### Login
+![Login](screenshots/login.jpeg)
+
+### Registro
+![Registro](screenshots/register.jpeg)
+
+### Panel de Administrador
+![Panel de Administrador](screenshots/admin-panel.jpeg)
+
+### Panel de Instructor
+![Panel de Instructor](screenshots/teacher-panel.jpeg)
+
+### Panel de Estudiante
+![Panel de Estudiante](screenshots/student-panel.jpeg)
 
 ---
 
