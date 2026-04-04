@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../models/mysql/index.js');
 const { User } = db;
@@ -15,8 +15,7 @@ const register = async (req, res) => {
     }
 
     // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create new user
     const newUser = await User.create({
@@ -28,12 +27,13 @@ const register = async (req, res) => {
 
     // Generate JWT token
     const payload = {
-      userId: newUser.id,
-      email: newUser.email
+      id: newUser.id,
+      email: newUser.email,
+      role: newUser.role
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: '7d'
+      expiresIn: process.env.JWT_EXPIRES_IN || '7d'
     });
 
     // Return user data and token (without password)
@@ -73,12 +73,13 @@ const login = async (req, res) => {
 
     // Generate JWT token
     const payload = {
-      userId: user.id,
-      email: user.email
+      id: user.id,
+      email: user.email,
+      role: user.role
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: '7d'
+      expiresIn: process.env.JWT_EXPIRES_IN || '7d'
     });
 
     // Return user data and token (without password)

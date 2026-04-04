@@ -49,9 +49,9 @@ Las plataformas educativas existentes son complejas de configurar o costosas par
 
 | Rol | Email | Password |
 |-----|-------|----------|
-| Administrador | auder@example.com | Password123! |
-| Instructor | tomas.instructor@example.com | Password123! |
-| Estudiante | student1@example.com | Password123! |
+| Administrador | admin@example.com | Admin123! |
+| Instructor | instructor@example.com | Instructor123! |
+| Estudiante | student@example.com | Student123! |
 
 ---
 

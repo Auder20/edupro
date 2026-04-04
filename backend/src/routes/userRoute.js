@@ -2,6 +2,7 @@ const express = require('express');
 const userController = require('../controllers/userController.js');
 const auth = require('../middleware/authMiddleware.js');
 const { validate, registerSchema, loginSchema } = require('../middleware/validate.js');
+const { isAdmin } = require('../middleware/roleMiddleware.js');
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get('/profile', auth, userController.getProfile);
 router.put('/profile', auth, userController.updateProfile);
 router.delete('/profile', auth, userController.deleteAccount);
 
-// Admin / General routes
-router.get('/', userController.getAllUsers);
+// Admin only routes
+router.get('/', auth, isAdmin, userController.getAllUsers);
 
 module.exports = router;

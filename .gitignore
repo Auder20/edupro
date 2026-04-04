@@ -25,6 +25,10 @@ ENV/
 
 # Logs
 *.log
+logs/
+out.log
+combined.log
+error.log
 
 # OS generated files
 .DS_Store
